@@ -26,7 +26,7 @@ function buildPrompt(ramo = []) {
   if (!Array.isArray(ramo) || ramo.length === 0) {
     return `
 Fotografía de un ramo de flores minimalista y elegante.
-Ramo empapelado, agrega follaje como eucalipto miller y leather,
+Ramo empapelado, agrega un poco de follaje, agrega exactamente la cantidad de flores solicitadas con las caracteristicas exactas,
 envuelto en papel tipo coreano en tonos que contrasten con las flores,
 fondo claro desenfocado, iluminación natural, agregar exclusivamente y unicamente las flores seleccionadas, calidad catálogo para tienda en línea.
     `.trim();
@@ -123,6 +123,7 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log("✅ Backend Floralte corriendo en puerto", PORT);
 });
+
 
 
 
