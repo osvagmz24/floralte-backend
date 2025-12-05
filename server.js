@@ -53,23 +53,16 @@ app.post("/api/generar-preview-ramos", async (req, res) => {
             prompt
         });
 
-    } catch (error) {
-  console.error("🔥 ERROR AL GENERAR IA:", error);
-
-  const status = error.status || 500;
-  const message =
-    error?.error?.message ||
-    error?.response?.data?.error?.message ||
-    error.message ||
-    "Error generando imagen.";
-
-  return res.status(status).json({
-    ok: false,
-    message
-  });
-}
+    console.error(error);
+        res.status(500).json({
+            ok: false,
+            message: "Error generando imagen"
+        });
+    }
+});
 
 app.listen(process.env.PORT, () => {
     console.log("Backend Floralte corriendo en puerto", process.env.PORT);
 });
+
 
