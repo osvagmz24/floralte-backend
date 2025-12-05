@@ -22,26 +22,62 @@ app.get("/ping", (req, res) => {
 
 // Construir prompt a partir del ramo
 function buildPrompt(ramo = []) {
+  // Si no hay selección, usamos un prompt genérico
   if (!Array.isArray(ramo) || ramo.length === 0) {
     return `
 Fotografía de un ramo de flores elegante, estilo Floralte Diseño Floral.
-Flores mixtas en tonos suaves, fondo claro desenfocado, iluminación natural,
-composición armoniosa tipo catálogo para tienda en línea.
+Ramo tipo bouquet empapelado, muy lleno y abundante, sin espacios vacíos,
+envuelto en papel tipo coreano en tonos crema y rosa pálido,
+fondo claro desenfocado, iluminación natural, calidad catálogo para tienda en línea.
     `.trim();
   }
 
+  // Algunas flores tienen varias cabezas por tallo
+  const floresMultiples = new Set(["babyrose", "margarita", "astromelia"]);
+
+  let totalTallos = 0;
+  let totalFlorecitas = 0;
+
   const partes = ramo.map((item) => {
-    const c = item.color ? `color ${item.color}` : "";
-    return `${item.qty} tallos de ${item.nombre} ${c}`.trim();
+    const id = (item.id || "").toLowerCase();
+    const qty = Number(item.qty) || 0;
+    const color = item.color ? `color ${item.color}` : "";
+    totalTallos += qty;
+
+    // Si es de las que traen varias flores por tallo, multiplicamos
+    const multiplicador = floresMultiples.has(id) ? 5 : 1;
+    const florecitas = qty * multiplicador;
+    totalFlorecitas += florecitas;
+
+    let extra = "";
+    if (multiplicador > 1) {
+      extra = ` (aprox. ${florecitas} florecitas en ramitos, muy tupidas)`;
+    }
+
+    return `${qty} tallos de ${item.nombre} ${color}${extra}`.trim();
   });
 
+  // Descripción de tamaño según la cantidad total de florecitas
+  let descripcionTamano = "ramo mediano y abundante";
+  if (totalFlorecitas <= 12) {
+    descripcionTamano = "ramo pequeño pero muy lleno";
+  } else if (totalFlorecitas > 12 && totalFlorecitas <= 30) {
+    descripcionTamano = "ramo mediano, muy tupido y equilibrado";
+  } else if (totalFlorecitas > 30) {
+    descripcionTamano = "ramo grande, muy abundante y espectacular";
+  }
+
   return `
-Fotografía de un ramo de flores elegante, estilo Floralte Diseño Floral,
+Fotografía de un ${descripcionTamano} estilo Floralte Diseño Floral,
+ramo tipo bouquet empapelado, muy lleno y sin espacios vacíos,
 con ${partes.join(", ")},
-composición armoniosa, fondo claro desenfocado, iluminación natural,
-estilo catálogo para tienda en línea.
+las flores de baby rose, margaritas y astromelia se representan en ramitos con varias florecitas por tallo, creando mucha textura,
+envuelto en papel tipo coreano en tonos crema y rosa pálido,
+listón elegante, composición armoniosa, fondo claro desenfocado,
+iluminación natural suave, calidad catálogo para tienda en línea.
   `.trim();
 }
+
 
 // Endpoint que llama a OpenAI para generar la imagen
 app.post("/api/generar-preview-ramos", async (req, res) => {
@@ -87,4 +123,5 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log("✅ Backend Floralte corriendo en puerto", PORT);
 });
+
 
