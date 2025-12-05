@@ -51,25 +51,25 @@ fondo claro desenfocado, iluminación natural, agregar exclusivamente y unicamen
 
     let extra = "";
     if (multiplicador > 1) {
-      extra = ` (aprox. ${florecitas} florecitas en ramitos, muy tupidas)`;
+      extra = ` (aprox. ${florecitas} florecitas en ramitos)`;
     }
 
     return `${qty} tallos de ${item.nombre} ${color}${extra}`.trim();
   });
 
   // Descripción de tamaño según la cantidad total de florecitas
-  let descripcionTamano = "ramo mediano y abundante";
+  let descripcionTamano = "ramo mediano";
   if (totalFlorecitas <= 12) {
-    descripcionTamano = "ramo pequeño pero muy lleno";
+    descripcionTamano = "ramo pequeño";
   } else if (totalFlorecitas > 12 && totalFlorecitas <= 30) {
-    descripcionTamano = "ramo mediano, muy tupido y equilibrado";
+    descripcionTamano = "ramo mediano, equilibrado";
   } else if (totalFlorecitas > 30) {
-    descripcionTamano = "ramo grande, muy abundante y espectacular";
+    descripcionTamano = "ramo grande, muy espectacular";
   }
 
   return `
-Fotografía de un ${descripcionTamano} estilo Floralte Diseño Floral,
-ramo tipo bouquet empapelado, muy lleno y sin espacios vacíos,
+Fotografía de un ${descripcionTamano},
+ramo empapelado,
 con ${partes.join(", ")},
 las flores de baby rose, margaritas y astromelia se representan en ramitos con varias florecitas por tallo, creando mucha textura,
 envuelto en papel tipo coreano en tonos crema y rosa pálido,
@@ -123,6 +123,7 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log("✅ Backend Floralte corriendo en puerto", PORT);
 });
+
 
 
 
