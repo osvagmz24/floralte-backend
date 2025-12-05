@@ -1,3 +1,4 @@
+// server.js
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -9,60 +10,81 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// 👇 Asegúrate de tener OPENAI_API_KEY configurada en Render
 const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
-// Construye texto para describir el ramo
-function buildPrompt(ramo) {
-    if (!ramo || ramo.length === 0) {
-        return "Fotografía de un ramo elegante estilo Floralte, iluminación suave.";
-    }
+// Endpoint simple para probar que el backend está vivo
+app.get("/ping", (req, res) => {
+  res.json({ ok: true, message: "Floralte backend está vivo 🌸" });
+});
 
-    const partes = ramo.map(item => {
-        const c = item.color ? `color ${item.color}` : "";
-        return `${item.qty} tallos de ${item.nombre} ${c}`;
-    });
-
+// Construir prompt a partir del ramo
+function buildPrompt(ramo = []) {
+  if (!Array.isArray(ramo) || ramo.length === 0) {
     return `
-Fotografía de un ramo elegante estilo Floralte Diseño Floral,
+Fotografía de un ramo de flores elegante, estilo Floralte Diseño Floral.
+Flores mixtas en tonos suaves, fondo claro desenfocado, iluminación natural,
+composición armoniosa tipo catálogo para tienda en línea.
+    `.trim();
+  }
+
+  const partes = ramo.map((item) => {
+    const c = item.color ? `color ${item.color}` : "";
+    return `${item.qty} tallos de ${item.nombre} ${c}`.trim();
+  });
+
+  return `
+Fotografía de un ramo de flores elegante, estilo Floralte Diseño Floral,
 con ${partes.join(", ")},
-fondo claro suave, iluminación natural.
-`.trim();
+composición armoniosa, fondo claro desenfocado, iluminación natural,
+estilo catálogo para tienda en línea.
+  `.trim();
 }
 
-// Endpoint que llama tu página web
+// Endpoint que llama a OpenAI para generar la imagen
 app.post("/api/generar-preview-ramos", async (req, res) => {
-    try {
-        const { ramo } = req.body;
+  try {
+    const { ramo } = req.body;
+    console.log("💐 Ramo recibido:", JSON.stringify(ramo, null, 2));
 
-        const prompt = buildPrompt(ramo);
+    const prompt = buildPrompt(ramo);
+    console.log("📝 Prompt generado:", prompt);
 
-        const result = await openai.images.generate({
-            model: "gpt-image-1",
-            prompt,
-            size: "1024x1024"
-        });
+    const result = await openai.images.generate({
+      model: "gpt-image-1",
+      prompt,
+      size: "1024x1024",
+    });
 
-        const base64 = result.data[0].b64_json;
-        const imageUrl = `data:image/png;base64,${base64}`;
+    const base64 = result.data[0].b64_json;
+    const imageUrl = `data:image/png;base64,${base64}`;
 
-        res.json({
-            ok: true,
-            imageUrl,
-            prompt
-        });
+    return res.json({
+      ok: true,
+      imageUrl,
+      prompt,
+    });
+  } catch (error) {
+    console.error("🔥 ERROR AL GENERAR IA:", error);
 
-    console.error(error);
-        res.status(500).json({
-            ok: false,
-            message: "Error generando imagen"
-        });
-    }
+    const status = error.status || 500;
+    const message =
+      error?.error?.message ||
+      error?.response?.data?.error?.message ||
+      error.message ||
+      "Error generando imagen.";
+
+    return res.status(status).json({
+      ok: false,
+      message,
+    });
+  }
 });
 
-app.listen(process.env.PORT, () => {
-    console.log("Backend Floralte corriendo en puerto", process.env.PORT);
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log("✅ Backend Floralte corriendo en puerto", PORT);
 });
-
 
