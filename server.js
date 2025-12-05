@@ -28,7 +28,7 @@ function buildPrompt(ramo = []) {
 Fotografía de un ramo de flores elegante, estilo Floralte Diseño Floral.
 Ramo tipo bouquet empapelado, muy lleno y abundante, sin espacios vacíos,
 envuelto en papel tipo coreano en tonos crema y rosa pálido,
-fondo claro desenfocado, iluminación natural, calidad catálogo para tienda en línea.
+fondo claro desenfocado, iluminación natural, agregar exclusivamente y unicamente las flores seleccionadas, calidad catálogo para tienda en línea.
     `.trim();
   }
 
@@ -123,5 +123,6 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log("✅ Backend Floralte corriendo en puerto", PORT);
 });
+
 
 
