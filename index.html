@@ -2,1332 +2,1146 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-<!-- SEO GENERAL -->
-<title>Floralte | Florería en Guadalajara | Ramos personalizados, arreglos y eventos</title>
-<meta name="description" content="Floralte es una florería en Guadalajara especializada en ramos personalizados, arreglos florales, eventos, entregas a domicilio y 'Arma tu ramo' con preview generado por IA. Atención por WhatsApp.">
-<meta name="keywords" content="florería en Guadalajara, ramos personalizados, flores a domicilio gdl, ramos de novia, arreglos florales, florista guadalajara, decoracion de eventos, floratel, floralte diseño floral">
-<meta name="author" content="Floralte Diseño Floral">
-
-<!-- SEO LOCAL -->
-<meta name="geo.region" content="MX-JAL">
-<meta name="geo.placename" content="Guadalajara">
-<meta name="geo.position" content="20.6597;-103.3496">
-<meta name="ICBM" content="20.6597, -103.3496">
-
-<!-- OPEN GRAPH (COMPARTIR EN WHATSAPP / FACEBOOK) -->
-<meta property="og:title" content="Floralte | Florería en Guadalajara">
-<meta property="og:description" content="Ramos personalizados, arreglos florales, eventos y entrega en Guadalajara. Arma tu ramo con IA.">
-<meta property="og:image" content="https://floralte.com/images/ram1.jpg">
-<meta property="og:url" content="https://floralte.com">
-<meta property="og:type" content="website">
-
-<!-- TWITTER CARD (para compartir bonito en X/Twitter) -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Floralte | Florería en Guadalajara">
-<meta name="twitter:description" content="Ramos personalizados, arreglos florales, eventos y entrega en Guadalajara. Arma tu ramo con IA.">
-<meta name="twitter:image" content="https://floralte.com/images/ram1.jpg">
-
-<!-- FAVICON (si tienes ya uno en images) -->
-<link rel="icon" type="image/png" href="/images/logo.png">
-
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Tipografías -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Floralte — Ramos y eventos florales en Guadalajara</title>
+  <meta name="description" content="Floralte diseña ramos personalizados y decoración floral para bodas, XV años, eventos empresariales y momentos importantes en Guadalajara." />
+  <meta name="author" content="Floralte Diseño Floral" />
+  <link rel="icon" href="/images/logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --color-primary: #d14f7b;
-      --color-primary-soft: #ffe4f1;
-      --color-accent: #ffb4c8;
-      --color-bg: #fffafc;
-      --color-text: #2d2330;
-      --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.08);
-      --radius-xl: 24px;
+    :root{
+      --bg:#ffffff;
+      --bg-soft:#fff7fb;
+      --bg-soft-2:#fef2f7;
+      --ink:#222222;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --brand:#f472b6;     /* rosa pastel principal */
+      --brand-2:#c4b5fd;   /* lila suave */
+      --brand-soft:#fdf2f8;
+      --accent:#f97373;
+      --radius:18px;
+      --shadow-soft:0 10px 25px rgba(0,0,0,.05);
+      --shadow-strong:0 16px 40px rgba(0,0,0,.12);
+
+      /* Para el módulo Arma tu ramo original */
+      --color-primary:#f472b6;
+      --color-primary-soft:#fdf2f8;
+      --radius-xl:24px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, #ffe4ec, #fff8d6, #e8ffe8);
-      color: var(--color-text);
-      scroll-behavior: smooth;
-      font-size: 15px;
-    }
-
-    h1, h2, h3, h4 {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      color: #8d3f6a;
-      margin: 0 0 18px 0;
-      letter-spacing: 0.3px;
-    }
-
-    h2 {
-      font-size: 28px;
-    }
-
-    h3 {
-      font-size: 20px;
-    }
-
-    p {
-      line-height: 1.6;
-      margin: 0 0 14px 0;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* ========= ANIMACIONES BASE ========= */
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes subtleFloat {
-      0%   { transform: translateY(0px); }
-      50%  { transform: translateY(-4px); }
-      100% { transform: translateY(0px); }
-    }
-
-    .fade-up {
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards;
-    }
-
-    .fade-up-delay {
-      opacity: 0;
-      animation: fadeUp 0.9s ease forwards;
-      animation-delay: 0.18s;
-    }
-
-    /* ========= HEADER / MENÚ MOBILE-FIRST ========= */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    }
-
-    .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 8px 14px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      min-height: 56px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--color-primary);
-    }
-
-    .logo-icon {
-      font-size: 22px;
-      animation: subtleFloat 3s ease-in-out infinite;
-    }
-
-    .logo-text-main {
-      font-family: 'Dancing Script', cursive;
-      font-size: 22px;
-      letter-spacing: 0.5px;
-    }
-
-    .logo-text-sub {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #8c6f85;
-    }
-
-    .logo-text-wrapper {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-    }
-
-    /* Menú móvil */
-    nav {
-      position: absolute;
-      top: 56px;
-      left: 0;
-      right: 0;
-      background: #ffffffef;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 0 16px;
-      gap: 12px;
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transform: translateY(-8px);
-      transition:
-        max-height 0.25s ease-out,
-        opacity 0.22s ease-out,
-        transform 0.22s ease-out;
-    }
-
-    nav.open {
-      max-height: 360px;
-      opacity: 1;
-      transform: translateY(0);
-      padding-bottom: 12px;
-      padding-top: 6px;
-    }
-
-    .menu {
-      display: flex;
-      flex-direction: column;
-      list-style: none;
-      gap: 6px;
-      padding: 0;
-      margin: 0;
-      width: 100%;
-    }
-
-    .menu > li > a {
-      font-size: 14px;
-      color: #555;
-      padding: 6px 0;
-      display: inline-block;
-      border-bottom: 1px solid transparent;
-      transition: color 0.2s ease, border-color 0.2s ease;
-      cursor: pointer;
-    }
-
-    .menu > li > a:hover {
-      color: var(--color-primary);
-      border-bottom-color: var(--color-primary-soft);
-    }
-
-    .submenu {
-      list-style: none;
-      padding-left: 10px;
-      margin: 2px 0 0 0;
-    }
-
-    .submenu a {
-      font-size: 13px;
-      color: #777;
-      padding: 3px 0;
-      display: inline-block;
-      transition: color 0.2s ease;
-      cursor: pointer;
-    }
-
-    .submenu a:hover {
-      color: var(--color-primary);
-    }
-
-    .menu-cta-wrapper {
-      width: 100%;
-      padding-top: 4px;
-      border-top: 1px solid #f1e1ea;
-      margin-top: 4px;
-    }
-
-    .btn-cta {
-      background: var(--color-primary);
-      color: #fff;
-      border-radius: 999px;
-      padding: 9px 16px;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      box-shadow: 0 8px 20px rgba(209, 79, 123, 0.4);
-      border: none;
-      cursor: pointer;
-      white-space: nowrap;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      transition:
-        transform 0.15s ease,
-        box-shadow 0.15s ease,
-        background 0.15s ease,
-        filter 0.15s ease;
-    }
-
-    .btn-cta:hover {
-      background: #e0638a;
-      transform: translateY(-1px) scale(1.01);
-      box-shadow: 0 12px 28px rgba(209, 79, 123, 0.5);
-      filter: brightness(1.05);
-    }
-
-    .btn-cta:active {
-      transform: translateY(0) scale(0.98);
-      box-shadow: 0 6px 16px rgba(209, 79, 123, 0.35);
-    }
-
-    .menu-toggle {
-      display: block;
-      background: none;
-      border: none;
-      font-size: 26px;
-      cursor: pointer;
-      color: var(--color-primary);
-      padding: 6px;
-      border-radius: 999px;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-
-    .menu-toggle:active {
-      transform: scale(0.95);
-      background: #ffe6f0;
-    }
-
-    /* ========= SECCIONES COMO "PÁGINAS" ========= */
-
-    section {
-      padding: 52px 14px;
-    }
-
-    .section-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .view-section {
-      display: none;
-      min-height: calc(100vh - 56px);
-    }
-
-    .view-section.active {
-      display: block;
-    }
-
-    /* ========= HERO ========= */
-
-    .hero-section {
-      padding: 0;
-    }
-
-    #inicio.hero-section {
-      padding: 0;
-    }
-
-    .hero {
-      position: relative;
-      min-height: calc(100vh - 56px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 78px 16px 40px;
-      overflow: hidden;
-      background-image: url("images/por1.jpg"); /* CAMBIA AQUÍ TU IMAGEN */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
       background:
-        radial-gradient(circle at top left, rgba(255, 255, 255, 0.96), transparent 55%),
-        linear-gradient(120deg, rgba(255, 250, 252, 0.9), rgba(255, 228, 241, 0.45), rgba(0, 0, 0, 0.15));
-      z-index: 1;
+        radial-gradient(circle at 0% 0%, rgba(252,231,243,.9), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(239,246,255,.8), transparent 55%),
+        var(--bg);
+      color:var(--ink);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    a{color:inherit; text-decoration:none}
+
+    /* ====== HEADER ====== */
+    header{
+      position:sticky; top:0; z-index:1000;
+      backdrop-filter:saturate(170%) blur(14px);
+      background:rgba(255,255,255,.9);
+      border-bottom:1px solid rgba(248,113,170,.08);
+    }
+    .nav{
+      max-width:1100px; margin:0 auto;
+      display:flex; align-items:center; gap:12px;
+      padding:10px 16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:8px;
+      cursor:pointer;
+    }
+    .brand-badge{
+      width:34px; height:34px; border-radius:999px;
+      display:grid; place-items:center;
+      background:conic-gradient(from 180deg,var(--brand),var(--brand-2),var(--brand));
+      box-shadow:0 8px 18px rgba(248,113,170,.35);
+      font-size:18px;
+    }
+    .brand-title{display:flex; flex-direction:column; line-height:1;}
+    .brand-title strong{font-weight:800; letter-spacing:.3px; font-size:14px;}
+    .brand-title small{color:var(--muted); font-size:10px; letter-spacing:1.4px;}
+
+    .spacer{flex:1;}
+
+    .nav-links{
+      display:none; gap:6px; align-items:center;
+      background:rgba(255,255,255,.7);
+      padding:4px;
+      border-radius:999px;
+      border:1px solid rgba(248,113,170,.25);
+      box-shadow:0 10px 22px rgba(248,113,170,.18);
+    }
+    .nav-links a{
+      position:relative;
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:12px;
+      font-weight:600;
+      color:var(--muted);
+      transition:background .2s ease,color .2s ease,transform .15s ease;
+      white-space:nowrap;
+    }
+    .nav-links a:hover{
+      background:var(--brand-soft);
+      color:#111827;
+      transform:translateY(-1px);
+    }
+    .nav-links a.active{
+      background:linear-gradient(90deg,var(--brand),var(--brand-2));
+      color:#fff;
+      box-shadow:0 10px 20px rgba(248,113,170,.35);
     }
 
-    .hero-inner {
-      max-width: 1200px;
-      width: 100%;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      z-index: 2;
-      color: #2c1d2b;
+    .cta{
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      border:none;
+      color:#fff;
+      font-weight:700;
+      letter-spacing:.4px;
+      padding:9px 14px;
+      border-radius:999px;
+      box-shadow:0 12px 26px rgba(248,113,170,.4);
+      cursor:pointer;
+      font-size:11px;
+      text-transform:uppercase;
+      display:inline-flex; align-items:center; gap:6px;
+    }
+    .cta span.icon{font-size:16px;}
+
+    .menu{
+      background:#fff;
+      border:1px solid rgba(248,113,170,.4);
+      color:#111827;
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:18px;
+      cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 8px 20px rgba(0,0,0,.06);
+    }
+    @media(min-width:960px){
+      .nav-links{display:flex;}
+      .menu{display:none;}
     }
 
-    .hero-text {
-      padding: 0;
+    /* MOBILE NAV OVERLAY */
+    #mobileNav{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(255,255,255,.96);
+      z-index:900;
+      padding:70px 20px 20px;
+    }
+    #mobileNav.open{display:block;}
+    #mobileNav ul{
+      list-style:none; margin:0; padding:0;
+      display:flex; flex-direction:column; gap:12px;
+    }
+    #mobileNav a{
+      display:flex; justify-content:space-between; align-items:center;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-size:14px;
+      font-weight:600;
+      color:#111827;
+      box-shadow:0 10px 24px rgba(0,0,0,.04);
     }
 
-    .hero-text.fade-up {
-      animation-delay: 0.05s;
+    /* ====== HERO ====== */
+    .hero{
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:""; position:absolute; inset:-30%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(248,187,208,.7), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(221,214,254,.6), transparent 55%);
+      opacity:.6; pointer-events:none;
+    }
+    .hero-wrap{
+      position:relative;
+      max-width:1100px; margin:0 auto;
+      padding:40px 16px 40px;
+      display:grid; gap:24px;
+    }
+    @media(min-width:960px){
+      .hero-wrap{
+        grid-template-columns:1.1fr .9fr;
+        align-items:center;
+        padding:70px 16px 60px;
+      }
     }
 
-    .hero-text h1 {
-      font-size: 28px;
-      line-height: 1.2;
-      color: #7f325c;
-      text-shadow: 0 2px 10px rgba(255, 255, 255, 0.9);
+    .kicker{
+      display:inline-flex; gap:8px; align-items:center;
+      font-size:11px;
+      color:var(--muted);
+      padding:4px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.9);
+      border:1px solid rgba(248,113,170,.4);
+      box-shadow:0 8px 20px rgba(248,113,170,.18);
+    }
+    .k-dot{
+      width:8px; height:8px; border-radius:50%;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+    }
+    h1{
+      margin:16px 0 10px;
+      font-size:30px;
+      line-height:1.05;
+      font-weight:800;
+      letter-spacing:-.5px;
+      font-family:"Playfair Display",serif;
+      color:#111827;
+    }
+    @media(min-width:960px){
+      h1{font-size:46px;}
+    }
+    .hero-copy{
+      color:var(--muted);
+      font-size:14px;
+      max-width:520px;
+    }
+    .hero-copy strong{color:#111827;}
+    .hero-actions{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top:18px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:6px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#ffffff;
+      color:#111827;
+      font-weight:600;
+      cursor:pointer;
+      font-size:12px;
+      box-shadow:0 6px 14px rgba(0,0,0,.03);
+    }
+    .btn span.icon{font-size:16px;}
+    .btn:hover{
+      background:var(--bg-soft);
+      transform:translateY(-1px);
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      border:none;
+      color:#fff;
+      box-shadow:var(--shadow-strong);
     }
 
-    .hero-text p {
-      font-size: 15px;
-      margin-top: 10px;
-      margin-bottom: 18px;
-      color: #5a4a5e;
-      max-width: 440px;
+    .hero-panel{
+      background:rgba(255,255,255,.92);
+      border-radius:22px;
+      padding:14px 16px 12px;
+      border:1px solid rgba(248,113,170,.35);
+      box-shadow:0 14px 35px rgba(248,113,170,.18);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-panel::before{
+      content:""; position:absolute; inset:-30%;
+      background:radial-gradient(circle at 0 0,rgba(248,187,208,.8),transparent 60%);
+      opacity:.4; pointer-events:none;
+    }
+    .hero-panel h3{
+      margin:4px 0 4px;
+      font-size:16px; font-weight:700; color:#111827;
+    }
+    .hero-tag{
+      display:inline-flex; align-items:center; gap:6px;
+      font-size:11px;
+      background:var(--brand-soft);
+      border-radius:999px;
+      padding:4px 10px;
+      border:1px solid rgba(248,113,170,.35);
+      color:#9f1239;
+    }
+    .row{
+      display:flex; align-items:center; gap:6px; flex-wrap:wrap;
+    }
+    .mini{font-size:12px; color:var(--muted);}
+
+    /* HERO GALERÍA LADO DERECHO */
+    .hero-gallery{
+      position:relative;
+      padding:8px;
+    }
+    .hero-card{
+      border-radius:24px;
+      background:#fff;
+      padding:10px;
+      box-shadow:var(--shadow-soft);
+      border:1px solid var(--line);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-main-img{
+      border-radius:18px;
+      overflow:hidden;
+      position:relative;
+    }
+    .hero-main-img img{
+      width:100%; height:240px;
+      object-fit:cover;
+      display:block;
+      transform:scale(1.02);
+      transition:transform 4s ease-out;
+    }
+    .hero-main-img::after{
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(to top,rgba(0,0,0,.25),transparent 40%);
+    }
+    .hero-card:hover .hero-main-img img{
+      transform:scale(1.06);
+    }
+    .hero-chip-wrap{
+      position:absolute;
+      left:18px; bottom:18px;
+      display:flex; flex-direction:column; gap:4px;
+      color:#fff;
+      z-index:1;
+    }
+    .hero-chip{
+      display:inline-flex; align-items:center; gap:6px;
+      padding:4px 10px;
+      border-radius:999px;
+      background:rgba(0,0,0,.55);
+      font-size:11px;
+    }
+    .hero-chip span.dot{
+      width:7px; height:7px; border-radius:50%;
+      background:var(--brand);
+    }
+    .hero-caption{
+      margin-top:10px;
+      font-size:12px;
+      color:var(--muted);
     }
 
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 12px;
-      font-size: 12px;
+    /* SECCIONES GENERALES */
+    section{padding:46px 16px;}
+    .container{max-width:1100px; margin:0 auto;}
+    .section-head{
+      display:flex; justify-content:space-between; align-items:flex-end;
+      gap:12px;
+      margin-bottom:16px;
+      flex-wrap:wrap;
+    }
+    .section-head h2{
+      margin:0;
+      font-size:20px;
+      font-weight:800;
+      color:#111827;
+    }
+    .section-head p{
+      margin:4px 0 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .pill-label{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:1.4px;
+      color:var(--muted);
     }
 
-    .badge {
-      background: #fff;
-      border-radius: 999px;
-      padding: 5px 11px;
-      box-shadow: 0 5px 12px rgba(0,0,0,0.06);
-      display: flex;
-      align-items: center;
-      gap: 6px;
+    .card{
+      background:#ffffff;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-soft);
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      margin-top: 8px;
+    /* CATÁLOGO */
+    .carousel{
+      position:relative; overflow:hidden; border-radius:20px;
+    }
+    .carousel img{
+      width:100%; height:260px; object-fit:cover; display:block;
+      transition:transform .6s ease;
+    }
+    .carousel:hover img{transform:scale(1.03);}
+    .car-nav{
+      position:absolute; inset:0;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:0 10px;
+      pointer-events:none;
+    }
+    .car-btn{
+      width:32px; height:32px;
+      border-radius:999px;
+      display:grid; place-items:center;
+      background:rgba(255,255,255,.9);
+      border:1px solid var(--line);
+      cursor:pointer;
+      pointer-events:auto;
+      font-size:18px;
+      box-shadow:0 8px 20px rgba(0,0,0,.08);
+    }
+    .thumbs{
+      display:flex; gap:8px; padding:10px;
+      overflow-x:auto;
+      scrollbar-width:none;
+    }
+    .thumbs::-webkit-scrollbar{display:none;}
+    .thumbs img{
+      width:82px; height:60px;
+      border-radius:14px;
+      object-fit:cover;
+      opacity:.45;
+      border:2px solid transparent;
+      cursor:pointer;
+      flex:0 0 auto;
+    }
+    .thumbs img.active{
+      opacity:1;
+      border-color:var(--brand);
+      box-shadow:0 8px 18px rgba(248,113,170,.25);
     }
 
-    .btn-outline {
-      border-radius: 999px;
-      border: 1px solid var(--color-primary);
-      background: #fff;
-      padding: 9px 16px;
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      text-decoration: none;
-      color: var(--color-primary);
-      box-shadow: 0 6px 16px rgba(209, 79, 123, 0.12);
-      transition:
-        background 0.15s ease,
-        color 0.15s ease,
-        transform 0.15s ease,
-        box-shadow 0.15s ease;
+    /* ========= TITULITOS PARA EL BUILDER VIEJO ========= */
+    .section-header{
+      text-align:center;
+      margin-bottom:26px;
+    }
+    .section-header p{
+      max-width:640px;
+      margin:0 auto;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .section-tag{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:1.6px;
+      color:var(--brand);
+      font-weight:600;
+      margin-bottom:6px;
+    }
+    .section-divider{
+      width:60px;
+      height:3px;
+      margin:12px auto 0;
+      border-radius:999px;
+      background:linear-gradient(90deg,#f9a8d4,#e9d5ff);
     }
 
-    .btn-outline:hover {
-      background: var(--color-primary-soft);
-      transform: translateY(-1px);
-      box-shadow: 0 10px 22px rgba(209, 79, 123, 0.2);
+    /* ========= ARMA TU RAMO (versión original) ========= */
+
+    #builder{
+      background:#fff;
     }
 
-    .btn-outline:active {
-      transform: translateY(0);
+    .builder-grid{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
     }
 
-    .hero-side-card {
-      background: rgba(255, 255, 255, 0.96);
-      border-radius: var(--radius-xl);
-      padding: 16px 18px;
-      box-shadow: var(--shadow-soft);
-      font-size: 13px;
+    .builder-panel{
+      background:#fff7fb;
+      border-radius:var(--radius-xl);
+      padding:16px 16px 18px;
+      box-shadow:var(--shadow-soft);
     }
 
-    .hero-side-card.fade-up-delay {
-      animation-delay: 0.22s;
+    .builder-panel p{
+      font-size:13px;
+      color:var(--muted);
     }
 
-    .hero-side-card h3 {
-      font-size: 18px;
-      margin-bottom: 8px;
+    .builder-flowers{
+      margin-top:10px;
+      display:grid;
+      grid-template-columns:minmax(0,1fr);
+      gap:12px;
     }
 
-    .hero-side-card ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 8px 0;
-      font-size: 13px;
+    .flor-card{
+      background:#fff;
+      border-radius:18px;
+      padding:10px 12px 12px;
+      box-shadow:0 6px 16px rgba(0,0,0,0.06);
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      transition:transform 0.15s ease, box-shadow 0.15s ease;
     }
 
-    .hero-side-card li {
-      margin-bottom: 6px;
-      display: flex;
-      align-items: flex-start;
-      gap: 6px;
+    .flor-card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 22px rgba(0,0,0,0.12);
     }
 
-    .hero-side-card li span {
-      font-size: 16px;
-      margin-top: 2px;
+    .flor-header{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:6px;
     }
 
-    /* ========= SECCIONES GENERALES ========= */
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 26px;
+    .flor-image-wrap{
+      flex:0 0 64px;
+      height:64px;
+      border-radius:14px;
+      overflow:hidden;
+      background:#f9f0f5;
+      box-shadow:0 4px 10px rgba(0,0,0,0.06);
     }
 
-    .section-header p {
-      max-width: 640px;
-      margin: 0 auto;
-      font-size: 13px;
-      color: #5c4b61;
+    .flor-image-wrap img.flor-image{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
     }
 
-    .section-tag {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1.6px;
-      color: var(--color-primary);
-      font-weight: 600;
-      margin-bottom: 6px;
+    .flor-name{
+      font-weight:600;
+      font-size:15px;
+      color:#7b3f5e;
     }
 
-    .section-divider {
-      width: 60px;
-      height: 3px;
-      margin: 12px auto 0;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #f7a1c6, #ffd5e5);
+    .flor-precio{
+      font-size:13px;
+      color:#777;
     }
 
-    /* ========= GALERÍA ========= */
-
-    .galeria {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
+    .flor-controls{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      align-items:center;
+      margin-top:4px;
     }
 
-    .galeria img {
-      width: 100%;
-      display: block;
-      height: 170px;
-      object-fit: cover;
-      border-radius: 18px;
-      box-shadow: var(--shadow-soft);
-      transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
-    }
-
-    .galeria img:hover {
-      transform: translateY(-3px) scale(1.01);
-      box-shadow: 0 12px 26px rgba(0,0,0,0.18);
-      filter: brightness(1.02);
-    }
-
-    /* ========= ARMA TU RAMO ========= */
-
-    #arma-tu-ramo {
-      background: #fff;
-    }
-
-    .builder-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .builder-panel {
-      background: #fff7fb;
-      border-radius: var(--radius-xl);
-      padding: 16px 16px 18px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .builder-panel p {
-      font-size: 13px;
-      color: #666;
-    }
-
-    .builder-flowers {
-      margin-top: 10px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 12px;
-    }
-
-    .flor-card {
-      background: #fff;
-      border-radius: 18px;
-      padding: 10px 12px 12px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .flor-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(0,0,0,0.12);
-    }
-
-    .flor-name {
-      font-weight: 600;
-      font-size: 15px;
-      color: #7b3f5e;
-    }
-
-    .flor-precio {
-      font-size: 13px;
-      color: #777;
-    }
-
-    .flor-controls {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-      margin-top: 4px;
-    }
-
-    .flor-controls label {
-      font-size: 11px;
-      color: #666;
+    .flor-controls label{
+      font-size:11px;
+      color:#666;
     }
 
     .flor-select,
-    .flor-qty {
-      border-radius: 999px;
-      border: 1px solid #ddd;
-      padding: 5px 9px;
-      font-size: 13px;
-      background: #fff;
+    .flor-qty{
+      border-radius:999px;
+      border:1px solid #ddd;
+      padding:5px 9px;
+      font-size:13px;
+      background:#fff;
     }
 
-    .flor-qty {
-      width: 70px;
-    }
-.flor-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 6px;
-}
+    .flor-qty{width:70px;}
 
-.flor-image-wrap {
-  flex: 0 0 64px;
-  height: 64px;
-  border-radius: 14px;
-  overflow: hidden;
-  background: #f9f0f5;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-}
-
-.flor-image-wrap img.flor-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-
-    .btn-add {
-      border-radius: 999px;
-      border: none;
-      background: var(--color-primary);
-      color: #fff;
-      padding: 7px 12px;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      margin-left: auto;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      box-shadow: 0 6px 16px rgba(209, 79, 123, 0.3);
+    .btn-add{
+      border-radius:999px;
+      border:none;
+      background:var(--color-primary);
+      color:#fff;
+      padding:7px 12px;
+      font-size:12px;
+      font-weight:600;
+      cursor:pointer;
+      margin-left:auto;
+      display:inline-flex;
+      align-items:center;
+      gap:4px;
+      box-shadow:0 6px 16px rgba(209,79,123,0.3);
       transition:
         background 0.15s ease,
         transform 0.15s ease,
         box-shadow 0.15s ease;
     }
 
-    .btn-add:hover {
-      background: #e0638a;
-      transform: translateY(-1px);
-      box-shadow: 0 9px 20px rgba(209, 79, 123, 0.4);
+    .btn-add:hover{
+      background:#fb7185;
+      transform:translateY(-1px);
+      box-shadow:0 9px 20px rgba(209,79,123,0.4);
     }
 
-    .btn-add:active {
-      transform: translateY(0);
-      box-shadow: 0 4px 10px rgba(209, 79, 123, 0.3);
+    .btn-add:active{
+      transform:translateY(0);
+      box-shadow:0 4px 10px rgba(209,79,123,0.3);
     }
 
-    .builder-summary {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+    .builder-summary{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
     }
 
-    .summary-list {
-      max-height: 260px;
-      overflow-y: auto;
-      background: #fff;
-      border-radius: 14px;
-      padding: 10px 12px;
-      border: 1px solid #f1c8da;
+    .summary-list{
+      max-height:260px;
+      overflow-y:auto;
+      background:#fff;
+      border-radius:14px;
+      padding:10px 12px;
+      border:1px solid #f1c8da;
     }
 
-    .summary-empty {
-      font-size: 13px;
-      color: #777;
+    .summary-empty{
+      font-size:13px;
+      color:#777;
     }
 
-    .summary-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 13px;
-      padding: 4px 0;
-      border-bottom: 1px dashed #f1d2df;
+    .summary-item{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      font-size:13px;
+      padding:4px 0;
+      border-bottom:1px dashed #f1d2df;
+      gap:8px;
     }
 
-    .summary-item:last-child {
-      border-bottom: none;
+    .summary-item:last-child{border-bottom:none;}
+
+    .summary-item small{color:#777;}
+
+    .summary-thumb{
+      width:40px;
+      height:40px;
+      border-radius:12px;
+      overflow:hidden;
+      background:#fdf3f8;
+      flex-shrink:0;
     }
 
-    .summary-item small {
-      color: #777;
+    .summary-thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
     }
 
-    .summary-total {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 600;
-      margin-top: 6px;
-      font-size: 15px;
+    .summary-total{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      font-weight:600;
+      margin-top:6px;
+      font-size:15px;
     }
 
-    .summary-actions {
-      margin-top: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+    .summary-actions{
+      margin-top:10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
     }
 
-    .btn-secondary {
-      border-radius: 999px;
-      border: 1px solid #ccc;
-      background: #fff;
-      padding: 8px 14px;
-      font-size: 13px;
-      cursor: pointer;
+    .btn-secondary{
+      border-radius:999px;
+      border:1px solid #ccc;
+      background:#fff;
+      padding:8px 14px;
+      font-size:13px;
+      cursor:pointer;
       transition:
         background 0.15s ease,
         transform 0.15s ease,
         box-shadow 0.15s ease;
     }
 
-    .btn-secondary:hover {
-      background: #fdf3f8;
-      transform: translateY(-1px);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+    .btn-secondary:hover{
+      background:#fdf3f8;
+      transform:translateY(-1px);
+      box-shadow:0 8px 18px rgba(0,0,0,0.06);
     }
 
-    .btn-secondary:active {
-      transform: translateY(0);
-    }
+    .btn-secondary:active{transform:translateY(0);}
 
-    .btn-whatsapp {
-      border-radius: 999px;
-      border: none;
-      background: #25d366;
-      color: #fff;
-      padding: 9px 16px;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.24);
+    .btn-whatsapp{
+      border-radius:999px;
+      border:none;
+      background:#25d366;
+      color:#fff;
+      padding:9px 16px;
+      font-size:14px;
+      font-weight:600;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      box-shadow:0 10px 24px rgba(0,0,0,0.24);
       transition:
         background 0.15s ease,
         transform 0.15s ease,
         box-shadow 0.15s ease;
     }
 
-    .btn-whatsapp:hover {
-      background: #1ebe5a;
-      transform: translateY(-1px);
-      box-shadow: 0 14px 28px rgba(0,0,0,0.28);
+    .btn-whatsapp:hover{
+      background:#1ebe5a;
+      transform:translateY(-1px);
+      box-shadow:0 14px 28px rgba(0,0,0,0.28);
     }
 
-    .btn-whatsapp:active {
-      transform: translateY(0);
+    .btn-whatsapp:active{transform:translateY(0);}
+
+    .builder-note{
+      font-size:11px;
+      color:#777;
+      margin-top:6px;
     }
 
-    .builder-note {
-      font-size: 11px;
-      color: #777;
-      margin-top: 6px;
+    .preview-card{
+      margin-top:14px;
+      background:#fff;
+      border-radius:18px;
+      padding:12px 12px 14px;
+      border:1px dashed #f1c8da;
     }
 
-    /* ========= PREVIEW IA ========= */
-
-    .preview-card {
-      margin-top: 14px;
-      background: #fff;
-      border-radius: 18px;
-      padding: 12px 12px 14px;
-      border: 1px dashed #f1c8da;
+    .preview-card h4{
+      font-size:16px;
+      margin-bottom:6px;
+      font-style:normal;
     }
 
-    .preview-card h4 {
-      font-size: 16px;
-      margin-bottom: 6px;
-      font-style: normal;
+    .preview-card p{
+      font-size:12px;
+      color:#666;
+      margin-bottom:8px;
     }
 
-    .preview-card p {
-      font-size: 12px;
-      color: #666;
-      margin-bottom: 8px;
+    .preview-image-wrapper{
+      margin-top:10px;
+      display:none;
+      flex-direction:column;
+      gap:8px;
     }
 
-    .preview-image-wrapper {
-      margin-top: 10px;
-      display: none;
-      flex-direction: column;
-      gap: 8px;
+    .preview-image-wrapper.show{display:flex;}
+
+    .preview-loading{
+      font-size:12px;
+      color:#777;
     }
 
-    .preview-image-wrapper.show {
-      display: flex;
+    .preview-image-wrapper img{
+      width:100%;
+      border-radius:14px;
+      max-height:260px;
+      object-fit:cover;
+      box-shadow:var(--shadow-soft);
     }
 
-    .preview-loading {
-      font-size: 12px;
-      color: #777;
+    .preview-hint{
+      font-size:11px;
+      color:#888;
     }
 
-    .preview-image-wrapper img {
-      width: 100%;
-      border-radius: 14px;
-      max-height: 260px;
-      object-fit: cover;
-      box-shadow: var(--shadow-soft);
+    /* ========= ANIMACIÓN +1 ========= */
+    @keyframes popPlus{
+      0%{opacity:0; transform:translate(-50%,0) scale(.8);}
+      40%{opacity:1; transform:translate(-50%,-14px) scale(1);}
+      100%{opacity:0; transform:translate(-50%,-28px) scale(.9);}
     }
 
-    .preview-hint {
-      font-size: 11px;
-      color: #888;
+    .plus-one-pop{
+      position:absolute;
+      pointer-events:none;
+      transform:translate(-50%,0);
+      background:#ffffff;
+      padding:2px 8px;
+      border-radius:999px;
+      font-size:13px;
+      color:#d14f7b;
+      box-shadow:0 6px 16px rgba(0,0,0,0.18);
+      z-index:1200;
+      animation:popPlus 0.6s ease-out forwards;
     }
 
-    /* ========= CONTACTO ========= */
-
-    #contacto {
-      background: #fff;
+    /* ========= OVERLAY RAMO EN PROGRESO (MÓVIL) ========= */
+    .ramo-overlay{
+      position:fixed;
+      left:12px;
+      right:12px;
+      bottom:80px;
+      background:#ffffff;
+      border-radius:999px;
+      box-shadow:0 12px 28px rgba(0,0,0,0.18);
+      padding:10px 14px;
+      display:none;
+      z-index:999;
     }
 
-    .contact-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
+    .ramo-overlay-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:8px;
+      font-size:13px;
     }
 
-    .contact-info-card {
-      background: #fff7fb;
-      border-radius: var(--radius-xl);
-      padding: 18px 18px;
-      box-shadow: var(--shadow-soft);
+    .ramo-overlay-main{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
     }
 
-    .contact-info-card p,
-    .contact-info-card li {
-      font-size: 14px;
+    .ramo-overlay-title{
+      font-weight:600;
+      color:#7b3f5e;
+      font-size:13px;
     }
 
-    .contact-info-card ul {
-      list-style: none;
-      padding: 0;
-      margin: 12px 0 0 0;
+    .ramo-overlay-detail{
+      font-size:12px;
+      color:#666;
     }
 
-    .contact-form {
-      background: #fff;
-      border-radius: var(--radius-xl);
-      padding: 18px 18px 22px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .form-row {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .form-group {
-      margin-bottom: 10px;
-      width: 100%;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 13px;
-      margin-bottom: 4px;
-      color: #555;
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      padding: 9px 10px;
-      font-size: 14px;
-      font-family: inherit;
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 90px;
-    }
-
-    .form-note {
-      font-size: 11px;
-      color: #777;
-      margin-top: 4px;
-    }
-
-    /* ========= QUIÉNES SOMOS ========= */
-
-    #quienes .about-card {
-      background: #fff;
-      border-radius: var(--radius-xl);
-      padding: 20px 18px;
-      box-shadow: var(--shadow-soft);
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      font-size: 14px;
-    }
-
-    .about-highlights {
-      list-style: none;
-      padding: 0;
-      margin: 8px 0 0 0;
-      font-size: 14px;
-    }
-
-    .about-highlights li {
-      margin-bottom: 6px;
-    }
-
-    /* ========= FOOTER ========= */
-
-    footer {
-      background: #1f1b20;
-      color: #f0e7f3;
-      padding: 22px 14px 70px;
-      font-size: 12px;
-    }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 8px;
-      align-items: center;
-    }
-
-    /* ========= BOTÓN WHATSAPP FLOTANTE ========= */
-
-    .whatsapp-fab {
-      position: fixed;
-      right: 16px;
-      bottom: 16px;
-      background: #25d366;
-      color: #fff;
-      border-radius: 999px;
-      padding: 10px 14px;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      box-shadow: 0 12px 26px rgba(0,0,0,0.25);
-      z-index: 1000;
-      transition:
-        transform 0.15s ease,
-        box-shadow 0.15s ease,
-        background 0.15s ease;
-    }
-
-    .whatsapp-fab span {
-      font-size: 18px;
-    }
-
-    .whatsapp-fab:hover {
-      background: #1ebe5a;
-      transform: translateY(-2px);
-      box-shadow: 0 16px 32px rgba(0,0,0,0.3);
-    }
-
-    .whatsapp-fab:active {
-      transform: translateY(0);
-    }
-
-    /* ========= OVERLAY RAMO EN PROGRESO ========= */
-
-    .ramo-overlay {
-      position: fixed;
-      left: 12px;
-      right: 12px;
-      bottom: 80px;
-      background: #ffffff;
-      border-radius: 999px;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.18);
-      padding: 10px 14px;
-      display: none;
-      z-index: 999;
-    }
-
-    .ramo-overlay-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      font-size: 13px;
-    }
-
-    .ramo-overlay-main {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .ramo-overlay-title {
-      font-weight: 600;
-      color: #7b3f5e;
-      font-size: 13px;
-    }
-
-    .ramo-overlay-detail {
-      font-size: 12px;
-      color: #666;
-    }
-
-    .ramo-overlay-btn {
-      border-radius: 999px;
-      border: none;
-      background: var(--color-primary);
-      color: #fff;
-      padding: 7px 10px;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      white-space: nowrap;
+    .ramo-overlay-btn{
+      border-radius:999px;
+      border:none;
+      background:var(--color-primary);
+      color:#fff;
+      padding:7px 10px;
+      font-size:12px;
+      font-weight:600;
+      cursor:pointer;
+      white-space:nowrap;
       transition:
         background 0.15s ease,
         transform 0.15s ease,
         box-shadow 0.15s ease;
-      box-shadow: 0 8px 18px rgba(209, 79, 123, 0.4);
+      box-shadow:0 8px 18px rgba(209,79,123,0.4);
     }
 
-    .ramo-overlay-btn:hover {
-      background: #e0638a;
-      transform: translateY(-1px);
-      box-shadow: 0 10px 22px rgba(209, 79, 123, 0.5);
+    .ramo-overlay-btn:hover{
+      background:#fb7185;
+      transform:translateY(-1px);
+      box-shadow:0 10px 22px rgba(209,79,123,0.5);
     }
 
-    .ramo-overlay-btn:active {
-      transform: translateY(0);
+    .ramo-overlay-btn:active{transform:translateY(0);}
+
+    .ramo-overlay.show{display:block;}
+
+    /* EVENTOS */
+    .events{
+      position:relative;
+      overflow:hidden;
     }
-
-    .ramo-overlay.show {
-      display: block;
+    .events-bg{
+      position:absolute; inset:0;
+      background-position:center;
+      background-size:cover;
+      opacity:.12;
+      transition:opacity .4s ease,transform .6s ease;
+      pointer-events:none;
+      filter:saturate(1.03);
+      mix-blend-mode:multiply;
     }
+    .events-inner{position:relative;}
 
-    /* ========= RESPONSIVE ========= */
-
-    @media (min-width: 600px) {
-      .galeria {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
+    .events-grid{
+      display:grid; gap:10px;
     }
-
-    @media (min-width: 768px) {
-      .hero-inner {
-        display: grid;
-        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-        gap: 40px;
-      }
-
-      .hero {
-        padding: 96px 32px 70px;
-      }
-
-      .hero-text h1 {
-        font-size: 34px;
-      }
-
-      .builder-flowers {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .contact-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-        gap: 26px;
-      }
-
-      #quienes .about-card {
-        display: grid;
-        grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-        gap: 20px;
-      }
-
-      .form-row {
-        flex-direction: row;
-      }
-
-      .galeria {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+    @media(min-width:900px){
+      .events-grid{
+        grid-template-columns:repeat(3,minmax(0,1fr));
       }
     }
+    .event{
+      position:relative;
+      border-radius:18px;
+      border:1px solid #f3e8ff;
+      background:#ffffff;
+      padding:12px;
+      min-height:130px;
+      overflow:hidden;
+      cursor:pointer;
+      box-shadow:0 8px 20px rgba(0,0,0,.03);
+      transition:box-shadow .2s ease, transform .18s ease, border-color .2s ease, background .2s ease;
+    }
+    .event[data-bg]::before{
+      content:""; position:absolute; inset:0;
+      background-image:var(--bg-img);
+      background-size:cover; background-position:center;
+      opacity:0;
+      transition:opacity .35s ease, transform .5s ease;
+      transform:scale(1.04);
+      filter:saturate(1.05);
+    }
+    .event .tag{
+      font-size:11px;
+      padding:3px 8px;
+      border-radius:999px;
+      background:var(--brand-soft);
+      border:1px solid rgba(248,113,170,.35);
+      color:#9f1239;
+      display:inline-flex; align-items:center; gap:5px;
+      margin-bottom:4px;
+    }
+    .event h4{
+      margin:0 0 4px;
+      font-size:15px;
+      font-weight:700;
+      color:#111827;
+    }
+    .event small{
+      font-size:12px;
+      color:var(--muted);
+    }
+    .event:hover{
+      box-shadow:0 16px 40px rgba(0,0,0,.12);
+      transform:translateY(-2px);
+      border-color:var(--brand);
+      background:#fff7fb;
+    }
+    .event:hover::before{
+      opacity:.26;
+      transform:scale(1);
+    }
+    .event.on{
+      border-color:var(--brand);
+      background:#fff7fb;
+    }
 
-    @media (min-width: 960px) {
-      .header-inner {
-        padding: 10px 18px;
+    .events-copy{
+      margin-top:14px;
+      display:grid; gap:10px;
+    }
+    .why{
+      background:#ffffff;
+      border-radius:18px;
+      padding:14px;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-soft);
+    }
+    .why ul{
+      margin:8px 0 0 18px;
+      padding:0;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .why li{margin-bottom:4px;}
+
+    /* CONTACTO */
+    .contact-grid{
+      display:grid; gap:14px;
+    }
+    @media(min-width:900px){
+      .contact-grid{
+        grid-template-columns:1fr 1fr;
       }
+    }
+    .field{
+      display:flex; flex-direction:column; gap:5px;
+      margin-bottom:8px;
+    }
+    label{
+      font-size:12px;
+      color:var(--muted);
+    }
+    .field input,
+    .field textarea,
+    .field select{
+      background:#f9fafb;
+      border:1px solid #e5e7eb;
+      border-radius:12px;
+      padding:9px 11px;
+      font:inherit;
+      font-size:13px;
+      color:#111827;
+    }
 
-      nav {
-        position: static;
-        background: transparent;
-        flex-direction: row;
-        align-items: center;
-        padding: 0;
-        gap: 24px;
-        max-height: none;
-        overflow: visible;
-        opacity: 1;
-        transform: none;
-      }
+    /* NOSOTROS */
+    .about-text{
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.6;
+    }
 
-      .menu {
-        flex-direction: row;
-        gap: 20px;
-        width: auto;
-      }
+    footer{
+      border-top:1px solid #f3f4f6;
+      padding:20px 16px 24px;
+      font-size:12px;
+      color:var(--muted);
+      text-align:center;
+    }
 
-      .menu > li {
-        position: relative;
-      }
+    /* ANIMACIONES ENTRADA SUAVE */
+    @keyframes fadeUp{
+      from{opacity:0; transform:translateY(16px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+    .a-fade{
+      opacity:0;
+      animation:fadeUp .7s ease-out forwards;
+    }
+    .a-delay-1{animation-delay:.1s;}
+    .a-delay-2{animation-delay:.2s;}
+    .a-delay-3{animation-delay:.3s;}
+    .a-delay-4{animation-delay:.4s;}
 
-      .menu > li > a {
-        padding-bottom: 4px;
-        border-bottom: none;
-      }
-
-      .menu > li > a::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 0;
-        height: 2px;
-        background: var(--color-primary);
-        transition: width 0.3s;
-      }
-
-      .menu > li > a:hover::after {
-        width: 100%;
-      }
-
-      .submenu {
-        position: absolute;
-        top: 30px;
-        left: 0;
-        background: #fff;
-        border-radius: 12px;
-        padding: 10px 12px;
-        box-shadow: var(--shadow-soft);
-        margin: 0;
-        min-width: 180px;
-        transform: translateY(8px);
-        opacity: 0;
-        pointer-events: none;
-        transition: all 0.2s ease-out;
-      }
-
-      .submenu-parent:hover .submenu {
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateY(0);
-      }
-
-      .menu-cta-wrapper {
-        width: auto;
-        padding-top: 0;
-        border-top: none;
-        margin-top: 0;
-      }
-
-      .menu-toggle {
-        display: none;
-      }
-
-      .hero {
-        max-height: 780px;
-      }
-
-      footer {
-        padding-bottom: 26px;
-      }
-
-      .whatsapp-fab {
-        display: none;
-      }
-
-      .ramo-overlay {
-        display: none !important;
+    @media(min-width:600px){
+      .builder-flowers{
+        grid-template-columns:repeat(2,minmax(0,1fr));
       }
     }
 
+    @media(min-width:960px){
+      section{padding-top:54px; padding-bottom:54px;}
+      .builder-grid{
+        flex-direction:row;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- MOBILE NAV -->
+  <div id="mobileNav">
+    <ul>
+      <li><a href="#top" onclick="closeMobileNav()">Inicio <span>⌄</span></a></li>
+      <li><a href="#catalogo" onclick="closeMobileNav()">Galería</a></li>
+      <li><a href="#builder" onclick="closeMobileNav()">Arma tu ramo</a></li>
+      <li><a href="#eventos" onclick="closeMobileNav()">Eventos</a></li>
+      <li><a href="#contacto" onclick="closeMobileNav()">Contacto</a></li>
+      <li><a href="#nosotros" onclick="closeMobileNav()">Nosotros</a></li>
+    </ul>
+  </div>
 
-  <!-- ========== HEADER ========== -->
+  <!-- HEADER -->
   <header>
-    <div class="header-inner">
-      <div class="logo">
-        <div class="logo-icon">🌸</div>
-        <div class="logo-text-wrapper">
-          <span class="logo-text-main">Floralte</span>
-          <span class="logo-text-sub">Diseño Floral</span>
+    <nav class="nav">
+      <div class="brand" onclick="scrollToId('top')">
+        <div class="brand-badge">🌸</div>
+        <div class="brand-title">
+          <strong>FLORALTE</strong>
+          <small>DISEÑO FLORAL • GDL</small>
         </div>
       </div>
-
-      <button class="menu-toggle" aria-label="Abrir menú">☰</button>
-
-      <nav>
-        <ul class="menu">
-          <li><a data-section="inicio">Inicio</a></li>
-
-          <li class="submenu-parent">
-            <a data-section="catalogo">Catálogo</a>
-            <ul class="submenu">
-              <li><a data-section="ramos">Ramos</a></li>
-              <li><a data-section="arreglos">Arreglos</a></li>
-              <li><a data-section="coronas">Coronas</a></li>
-              <li><a data-section="regalos">Regalos</a></li>
-            </ul>
-          </li>
-
-          <li><a data-section="arma-tu-ramo">Arma tu ramo</a></li>
-          <li><a data-section="eventos">Eventos</a></li>
-          <li><a data-section="contacto">Contacto</a></li>
-          <li><a data-section="quienes">¿Quiénes somos?</a></li>
-        </ul>
-
-        <div class="menu-cta-wrapper">
-          <button class="btn-cta" type="button" onclick="showSection('contacto')">
-            ✨ Crear cotización ahora
-          </button>
-        </div>
-      </nav>
-    </div>
+      <div class="spacer"></div>
+      <div class="nav-links" id="navLinks">
+        <a href="#top" class="active">Inicio</a>
+        <a href="#catalogo">Galería</a>
+        <a href="#builder">Arma tu ramo</a>
+        <a href="#eventos">Eventos</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <button class="cta hide-on-mobile" onclick="scrollToId('builder')">
+        <span class="icon">💐</span> Crear ramo
+      </button>
+      <button class="menu" onclick="toggleMobileNav()">☰</button>
+    </nav>
   </header>
 
-  <!-- ========== INICIO (HERO) ========== -->
-  <section id="inicio" class="hero-section view-section active">
-    <div class="hero">
-      <div class="hero-inner">
-        <div class="hero-text fade-up">
-          <div class="hero-badges">
-            <div class="badge"><span>💐</span> Diseño floral a medida</div>
-            <div class="badge"><span>🚚</span> Entrega en Guadalajara</div>
-            <div class="badge"><span>🤍</span> Eventos & detalles</div>
-          </div>
-
-          <h1>Flores que dicen lo que las palabras no alcanzan a expresar.</h1>
-          <p>
-            En Floralte transformamos tus emociones en arreglos únicos: desde un ramo
-            sorpresa hasta la decoración completa de tu evento.
-          </p>
-
-          <div class="hero-actions">
-            <button class="btn-cta" type="button" onclick="showSection('arma-tu-ramo')">
-              🌷 Armar mi ramo ahora
-            </button>
-            <button class="btn-outline" type="button" onclick="showSection('catalogo')">
-              Ver catálogo de diseños
-            </button>
-          </div>
+  <!-- HERO -->
+  <main id="top" class="hero">
+    <div class="hero-wrap">
+      <div>
+        <div class="kicker a-fade">
+          <span class="k-dot"></span>
+          Ramos y ambientaciones pensadas para personas reales
+        </div>
+        <h1 class="a-fade a-delay-1">
+          Flores que cuentan tu historia, no solo decoran tu evento.
+        </h1>
+        <p class="hero-copy a-fade a-delay-2">
+          En Floralte diseñamos ramos y espacios florales con intención: escuchamos lo que quieres transmitir
+          y lo traducimos en color, textura y forma. Desde un detalle sorpresa hasta una boda completa,
+          estamos en <strong>Guadalajara y alrededores</strong> para acompañar tus momentos importantes.
+        </p>
+        <div class="hero-actions a-fade a-delay-3">
+          <button class="btn-primary btn" onclick="scrollToId('builder')">
+            <span class="icon">🌷</span> Armar mi ramo
+          </button>
+          <button class="btn" onclick="scrollToId('eventos')">
+            <span class="icon">🎉</span> Ver eventos
+          </button>
         </div>
 
-        <aside class="hero-side-card fade-up-delay">
-          <h3>¿Buscas algo especial hoy?</h3>
-          <ul>
-            <li><span>✨</span> Ramos personalizados según ocasión y presupuesto.</li>
-            <li><span>📅</span> Agenda tu evento con propuesta floral completa.</li>
-            <li><span>💌</span> Tarjeta de mensaje incluida en tus entregas.</li>
-            <li><span>📲</span> Atención directa por WhatsApp para cambios y dudas.</li>
-          </ul>
-        </aside>
+        <div class="hero-panel a-fade a-delay-4" style="margin-top:18px;">
+          <div class="hero-tag">
+            <span>⏱️</span> Respuesta rápida por WhatsApp
+          </div>
+          <h3>Floralte · Estudio floral en Guadalajara</h3>
+          <div class="row mini">
+            <span>📍</span>
+            <span>Av. Niños Héroes 74, Rancho Blanco, Tlaquepaque</span>
+          </div>
+          <div class="row mini" style="margin-top:4px;">
+            <span>📲</span>
+            <a href="https://wa.me/523336611674" target="_blank" rel="noopener">+52 33 3661 1674</a>
+          </div>
+          <div class="row mini" style="margin-top:4px;">
+            <span>🕘</span>
+            <span>Lun–Sáb · 10:00–19:00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lado derecho: mini galería hero -->
+      <div class="hero-gallery a-fade a-delay-3">
+        <div class="hero-card">
+          <div class="hero-main-img">
+            <img src="images/ram1.jpg" alt="Arreglo floral Floralte" />
+            <div class="hero-chip-wrap">
+              <div class="hero-chip">
+                <span class="dot"></span> Inspirado en tus colores favoritos
+              </div>
+              <div class="hero-chip">
+                <span>📸</span> Fotos reales de nuestro trabajo
+              </div>
+            </div>
+          </div>
+          <p class="hero-caption">
+            Trabajamos con flores frescas de <strong>Flores Chiltepec</strong> y armamos cada ramo uno por uno,
+            sin producción en serie. Lo que ves aquí es parte de lo que hemos creado para nuestros clientes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- CATÁLOGO -->
+  <section id="catalogo">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="pill-label">Galería</div>
+          <h2>Un vistazo a lo que hacemos</h2>
+          <p>Déjate inspirar por algunos ramos y arreglos, luego adaptamos el diseño a tu historia.</p>
+        </div>
+        <button class="btn" onclick="scrollToId('builder')">Quiero personalizar un ramo →</button>
+      </div>
+
+      <div class="card">
+        <div class="carousel">
+          <img id="car-main" src="images/ram1.jpg" alt="Arreglo destacado Floralte" />
+          <div class="car-nav">
+            <button class="car-btn" onclick="carGo(-1)">‹</button>
+            <button class="car-btn" onclick="carGo(1)">›</button>
+          </div>
+        </div>
+        <div id="thumbs" class="thumbs"></div>
       </div>
     </div>
   </section>
 
-  <!-- ========== CATÁLOGO GENERAL ========== -->
-  <section id="catalogo" class="view-section">
-    <div class="section-inner">
-      <div class="section-header">
-        <div class="section-tag">Catálogo</div>
-        <h2>Arreglos pensados para cada ocasión</h2>
-        <p>
-          Desde detalles sencillos hasta ramos espectaculares. Inspírate con algunos
-          de nuestros diseños y luego personaliza el tuyo.
-        </p>
-        <div class="section-divider"></div>
-      </div>
-
-      <div class="galeria">
-        <img src="images/ram1.jpg" alt="Ramo Floralte 1">
-        <img src="images/ram2.jpg" alt="Ramo Floralte 2">
-        <img src="images/ram3.jpg" alt="Ramo Floralte 3">
-        <img src="images/ram4.jpg" alt="Ramo Floralte 4">
-        <img src="images/ram9.jpg" alt="Ramo Floralte 5">
-        <img src="images/ram10.jpg" alt="Ramo Floralte 6">
-        <img src="images/ram12.jpg" alt="Ramo Floralte 7">
-        <img src="images/ram13.jpg" alt="Ramo Floralte 8">
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== ARMA TU RAMO ========== -->
-  <section id="arma-tu-ramo" class="view-section">
-    <div class="section-inner">
+  <!-- ARMA TU RAMO (versión original) -->
+  <section id="builder">
+    <div class="container">
       <div class="section-header">
         <div class="section-tag">Personaliza tu diseño</div>
         <h2>Arma tu ramo Floralte</h2>
@@ -1416,213 +1230,166 @@
     </div>
   </section>
 
-  <!-- ========== RAMOS ========== -->
-  <section id="ramos" class="view-section">
-    <div class="section-inner">
-      <div class="section-header">
-        <div class="section-tag">Ramos</div>
-        <h2>Ramos listos para enamorar</h2>
-        <div class="section-divider"></div>
+  <!-- EVENTOS -->
+  <section id="eventos" class="events">
+    <div id="eventsBg" class="events-bg"></div>
+    <div class="container events-inner">
+      <div class="section-head">
+        <div>
+          <div class="pill-label">Eventos</div>
+          <h2>Eventos florales pensados de principio a fin</h2>
+          <p>Más que centros de mesa: ambientamos el espacio para que se sienta tu esencia.</p>
+        </div>
       </div>
 
-      <div class="galeria">
-        <img src="images/ram14.jpg" alt="Ramo Floralte 9">
-        <img src="images/ram15.jpg" alt="Ramo Floralte 10">
-        <img src="images/ram16.jpg" alt="Ramo Floralte 11">
-        <img src="images/ram18.jpg" alt="Ramo Floralte 12">
-      </div>
-    </div>
-  </section>
+      <div class="events-grid">
+        <div class="event" data-key="bodas" style="--bg-img:url('images/ram4.jpg')" data-bg>
+          <div class="tag"><span>💍</span> Bodas</div>
+          <h4>Escenarios para decir “sí”</h4>
+          <small>Ramo de novia, altar, mesa de novios y detalles que se ven increíbles en foto, pero se sienten aún mejor en persona.</small>
+        </div>
 
-  <!-- ========== ARREGLOS ========== -->
-  <section id="arreglos" class="view-section">
-    <div class="section-inner">
-      <div class="section-header">
-        <div class="section-tag">Arreglos</div>
-        <h2>Arreglos para espacios y mesas</h2>
-        <div class="section-divider"></div>
+        <div class="event" data-key="xv" style="--bg-img:url('images/ram12.jpg')" data-bg>
+          <div class="tag"><span>👑</span> XV Años</div>
+          <h4>Flores para una noche única</h4>
+          <small>Paletas juveniles, mesa principal, photo spots y detalles que hacen que la quinceañera se sienta protagonista.</small>
+        </div>
+
+        <div class="event" data-key="empresarial" style="--bg-img:url('images/ar8.jpg')" data-bg>
+          <div class="tag"><span>🏢</span> Empresariales</div>
+          <h4>Eventos con imagen cuidada</h4>
+          <small>Recepciones, conferencias y cenas donde el arreglo floral respeta tu marca y eleva el espacio.</small>
+        </div>
+
+        <div class="event" data-key="pedidas" style="--bg-img:url('images/ram2.jpg')" data-bg>
+          <div class="tag"><span>💗</span> Pedidas de mano</div>
+          <h4>Momentos íntimos, flores cuidadas</h4>
+          <small>Arcos, pétalos, ramos y pequeños detalles que hacen de la pregunta un recuerdo inolvidable.</small>
+        </div>
+
+        <div class="event" data-key="graduaciones" style="--bg-img:url('images/ram1.jpg')" data-bg>
+          <div class="tag"><span>🎓</span> Graduaciones</div>
+          <h4>Celebrar todo el camino</h4>
+          <small>Escenarios para fotos, arreglos para escenario y ramos para entregar al final de la ceremonia.</small>
+        </div>
+
+        <div class="event" data-key="funebres" style="--bg-img:url('images/ar10.jpg')" data-bg>
+          <div class="tag"><span>🕊️</span> Despedidas</div>
+          <h4>Flores con respeto y calma</h4>
+          <small>Coronas y arreglos sobrios, pensados para acompañar y honrar la memoria con serenidad.</small>
+        </div>
       </div>
 
-      <div class="galeria">
-        <img src="images/ar3.jpg" alt="Arreglo Floralte 1">
-        <img src="images/ar8.jpg" alt="Arreglo Floralte 2">
-        <img src="images/ar9.jpg" alt="Arreglo Floralte 3">
-        <img src="images/ar10.jpg" alt="Arreglo Floralte 4">
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== CORONAS ========== -->
-  <section id="coronas" class="view-section">
-    <div class="section-inner">
-      <div class="section-header">
-        <div class="section-tag">Coronas</div>
-        <h2>Coronas y arreglos para despedidas</h2>
-        <p>
-          Diseños sobrios y elegantes para acompañar a tus seres queridos con respeto
-          y cariño, utilizando flores frescas y armoniosas.
-        </p>
-        <div class="section-divider"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== REGALOS ========== -->
-  <section id="regalos" class="view-section">
-    <div class="section-inner">
-      <div class="section-header">
-        <div class="section-tag">Regalos</div>
-        <h2>Más que flores, detalles completos</h2>
-        <p>
-          Cajas florales, arreglos con chocolates, peluches, globos y otros detalles
-          para entregar un regalo listo, sin complicaciones.
-        </p>
-        <div class="section-divider"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== EVENTOS ========== -->
-  <section id="eventos" class="view-section">
-    <div class="section-inner">
-      <div class="section-header">
-        <div class="section-tag">Eventos</div>
-        <h2>Decoración floral para tus momentos grandes</h2>
-        <p>
-          Bodas, XV años, pedidas de mano, eventos empresariales y celebraciones
-          íntimas. Diseñamos un concepto completo que conecte con tu estilo y el
-          ambiente que quieres crear.
-        </p>
-        <div class="section-divider"></div>
+      <div class="events-copy">
+        <div class="why">
+          <strong>Lo que cuidamos en cada evento</strong>
+          <ul>
+            <li>Escuchamos tu idea, presupuesto y estilo antes de proponer diseño.</li>
+            <li>Trabajamos con flores frescas de <strong>Flores Chiltepec</strong> y selección cuidadosa.</li>
+            <li>Coordinamos montaje, horarios y logística para que tú no te preocupes por nada.</li>
+            <li>Te compartimos fotos, ajustes y avances por WhatsApp para que te sientas acompañado.</li>
+          </ul>
+        </div>
+        <div class="row">
+          <button class="btn btn-primary" onclick="whats('Hola Floralte, quiero una cotización para mi evento.')">
+            Solicitar cotización
+          </button>
+          <button class="btn" onclick="scrollToId('catalogo')">Ver más fotos</button>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== CONTACTO / COTIZACIÓN ========== -->
-  <section id="contacto" class="view-section">
-    <div class="section-inner">
-      <div class="section-header">
-        <div class="section-tag">Cotización</div>
-        <h2>Cuéntanos lo que necesitas</h2>
-        <p>
-          Llena el formulario o escríbenos directamente por WhatsApp. Te
-          responderemos con una propuesta personalizada y opciones de diseño.
-        </p>
-        <div class="section-divider"></div>
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="pill-label">Contacto</div>
+          <h2>Platiquemos de tu idea</h2>
+          <p>Cuéntanos qué sueñas y vemos juntos cómo bajarlo a flores, colores y formas.</p>
+        </div>
       </div>
 
       <div class="contact-grid">
-        <div class="contact-info-card">
-          <h3>Atención Floralte</h3>
-          <p>Estamos en Guadalajara y atendemos pedidos con entrega programada.</p>
-          <ul>
-            <li><strong>WhatsApp:</strong> +52 33 3661 1674</li>
-            <li><strong>Horario:</strong> Lunes a sábado · 10:00 a 19:00 hrs</li>
-            <li><strong>Servicios:</strong> Detalles, ramos, eventos, empresas.</li>
-          </ul>
+        <div class="card" style="padding:14px;">
+          <p class="mini">WhatsApp directo</p>
+          <h3 style="margin:6px 0 4px; font-size:18px; color:#111827;">+52 33 3661 1674</h3>
+          <div class="row mini">
+            <span>📍</span>
+            <span>Av. Niños Héroes 74, Rancho Blanco, Tlaquepaque</span>
+          </div>
+          <div class="row mini" style="margin-top:4px;">
+            <span>🕘</span>
+            <span>Lun–Sáb · 10:00–19:00</span>
+          </div>
+          <div class="row" style="margin-top:10px;">
+            <button class="btn-primary btn" onclick="whats('Hola Floralte, quiero hacer un pedido.')">
+              Abrir WhatsApp
+            </button>
+          </div>
         </div>
 
-        <form class="contact-form">
-          <div class="form-row">
-            <div class="form-group">
-              <label>Nombre completo</label>
-              <input type="text" placeholder="Tu nombre" required>
-            </div>
-            <div class="form-group">
-              <label>WhatsApp</label>
-              <input type="tel" placeholder="Ej. 33 1234 5678" required>
-            </div>
+        <form class="card" style="padding:14px;" onsubmit="event.preventDefault(); whats('Hola Floralte, envío mis datos desde el formulario de la página.');">
+          <div class="field">
+            <label>Nombre</label>
+            <input placeholder="Tu nombre" required>
           </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label>Correo electrónico</label>
-              <input type="email" placeholder="tucorreo@ejemplo.com">
-            </div>
-            <div class="form-group">
-              <label>Tipo de servicio</label>
-              <select>
-                <option>Ramo / detalle</option>
-                <option>Evento social (boda, XV, etc.)</option>
-                <option>Evento empresarial</option>
-                <option>Decoración para casa/oficina</option>
-              </select>
-            </div>
+          <div class="field">
+            <label>WhatsApp</label>
+            <input placeholder="33 1234 5678" required>
           </div>
-
-          <div class="form-group">
-            <label>Describe tu idea</label>
-            <textarea placeholder="Cuéntanos fecha, tipo de ocasión, colores que te gustan, presupuesto aproximado..."></textarea>
+          <div class="field">
+            <label>Tipo de servicio</label>
+            <select>
+              <option>Ramo / detalle</option>
+              <option>Evento social (boda, XV)</option>
+              <option>Evento empresarial</option>
+              <option>Decoración en casa/oficina</option>
+            </select>
           </div>
-
-          <button type="submit" class="btn-cta">
-            Enviar solicitud
-          </button>
-
-          <div class="form-note">
-            * Este formulario es ilustrativo. Puedes conectarlo a tu sistema de correo o CRM.
+          <div class="field">
+            <label>Cuéntanos un poco</label>
+            <textarea rows="4" placeholder="Fecha, lugar, estilo que buscas, paleta de color, presupuesto aproximado…"></textarea>
           </div>
+          <button class="btn-primary btn" type="submit">Enviar por WhatsApp</button>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- ========== QUIÉNES SOMOS ========== -->
-  <section id="quienes" class="view-section">
-    <div class="section-inner">
-      <div class="section-header">
-        <div class="section-tag">Nosotros</div>
-        <h2>Floralte Diseño Floral</h2>
-        <p>
-          Nacimos con la idea de transformar emociones en arreglos hechos a mano,
-          donde cada detalle importa.
-        </p>
-        <div class="section-divider"></div>
+  <!-- NOSOTROS -->
+  <section id="nosotros">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="pill-label">Nosotros</div>
+          <h2>Floralte por dentro</h2>
+          <p>Un taller pequeño, ideas grandes y muchas ganas de que te vaya bien.</p>
+        </div>
       </div>
 
-      <div class="about-card">
-        <div>
-          <p>
-            En Floralte trabajamos con flores frescas y combinaciones de color
-            pensadas para contar historias: la tuya, la de quien recibe el ramo,
-            la de ese evento que quieres recordar siempre.
-          </p>
-          <ul class="about-highlights">
-            <li>• Diseños personalizados según ocasión y presupuesto.</li>
-            <li>• Experiencia en eventos pequeños y grandes.</li>
-            <li>• Enfoque en servicio, puntualidad y presentación.</li>
-          </ul>
-        </div>
-        <div>
-          <p>
-            Cada pieza se diseña con técnica, estilo y mucho amor por las flores.
-            Nos encanta asesorarte y ayudarte a elegir lo mejor para cada momento:
-            desde un “gracias” sencillo hasta un “sí, acepto” inolvidable.
-          </p>
-        </div>
+      <div class="card" style="padding:14px;">
+        <p class="about-text">
+          Floralte nace de la idea de que las flores no son solo “arreglos bonitos”, sino un lenguaje
+          para decir lo que a veces no sabemos poner en palabras. Escuchamos lo que quieres comunicar:
+          amor, agradecimiento, apoyo, celebración… y lo transformamos en combinaciones de flores,
+          texturas y alturas.
+        </p>
+        <p class="about-text" style="margin-top:8px;">
+          Trabajamos cada evento como si fuera el nuestro: revisando detalles, horarios y montaje para
+          que el día importante tú estés enfocado en vivirlo, no en coordinar flores. Nos emociona acompañar
+          desde pedidas y bodas hasta graduaciones y despedidas, sabiendo que en cada una hay una historia detrás.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
   <footer>
-    <div class="footer-inner">
-      <div>© <span id="year"></span> Floralte Diseño Floral. Todos los derechos reservados.</div>
-      <div>Hecho con 💐 en Guadalajara.</div>
-    </div>
+    © <span id="year"></span> Floralte Diseño Floral — Hecho con 💐 en Guadalajara
   </footer>
 
-  <!-- ========== WHATSAPP FLOTANTE SOLO MÓVIL ========== -->
-  <a
-    class="whatsapp-fab"
-    href="https://wa.me/523336611674?text=Hola%20Floralte,%20quiero%20hacer%20un%20pedido%20😍"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <span>📲</span> Pedir por WhatsApp
-  </a>
-
-  <!-- ========== OVERLAY RAMO EN PROGRESO ========== -->
+  <!-- OVERLAY RAMO EN PROGRESO -->
   <div id="ramo-overlay" class="ramo-overlay">
     <div class="ramo-overlay-inner">
       <div class="ramo-overlay-main">
@@ -1637,142 +1404,217 @@
     </div>
   </div>
 
-  <!-- ========== JS ========== -->
   <script>
-    // Año dinámico
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const $ = (s,p=document)=>p.querySelector(s);
+    const $$ = (s,p=document)=>[...p.querySelectorAll(s)];
 
-    // Menú móvil
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('header nav');
-    menuToggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
-    });
+    // Año en footer
+    $('#year').textContent = new Date().getFullYear();
 
-    // Navegación por secciones (estilo "páginas")
-    const sectionLinks = document.querySelectorAll('[data-section]');
-    const sections = document.querySelectorAll('.view-section');
-
-    function showSection(id) {
-      sections.forEach(sec => {
-        if (sec.id === id) {
-          sec.classList.add('active');
-        } else {
-          sec.classList.remove('active');
-        }
-      });
-      // Cerrar menú móvil al elegir sección
-      if (nav.classList.contains('open')) {
-        nav.classList.remove('open');
-      }
-      // Volver arriba
-      window.scrollTo({ top: 0, behavior: 'instant' });
+    function scrollToId(id){
+      document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
     }
 
-    window.showSection = showSection; // para usar desde los onclick del HTML
-
-    sectionLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = link.getAttribute('data-section');
-        if (target) showSection(target);
+    // NAV ACTIVO
+    function setActiveNav(){
+      const links = $$('#navLinks a');
+      const sections = ['top','catalogo','builder','eventos','contacto'];
+      let current = 'top';
+      const scrollPos = window.scrollY + 120;
+      sections.forEach(id=>{
+        const el = document.getElementById(id);
+        if(el && el.offsetTop <= scrollPos) current = id;
       });
-    });
+      links.forEach(a=>{
+        a.classList.toggle('active', a.getAttribute('href') === '#'+current);
+      });
+    }
+    window.addEventListener('scroll', setActiveNav);
 
-    // DATA: Flores para "Arma tu ramo"
+    // MOBILE NAV
+    function toggleMobileNav(){
+      const nav = $('#mobileNav');
+      nav.classList.toggle('open');
+    }
+    function closeMobileNav(){
+      $('#mobileNav').classList.remove('open');
+    }
+
+    // WHATSAPP SIMPLE
+    function whats(text){
+      window.open(`https://wa.me/523336611674?text=${encodeURIComponent(text)}`,'_blank');
+    }
+
+    // CATÁLOGO
+    const gallery = [
+      'images/ram1.jpg','images/ram2.jpg','images/ram3.jpg','images/ram4.jpg',
+      'images/ram9.jpg','images/ram10.jpg','images/ram12.jpg','images/ram13.jpg'
+    ];
+    let gIndex = 0;
+    const carMain = $('#car-main');
+    const thumbs = $('#thumbs');
+
+    function renderThumbs(){
+      thumbs.innerHTML = '';
+      gallery.forEach((src,i)=>{
+        const im = new Image();
+        im.src = src;
+        im.alt = 'Trabajo Floralte';
+        im.onclick = ()=>{gIndex=i; updateCar();};
+        if(i===0) im.classList.add('active');
+        thumbs.appendChild(im);
+      });
+    }
+    function updateCar(){
+      carMain.src = gallery[gIndex];
+      $$('#thumbs img').forEach((t,i)=>t.classList.toggle('active',i===gIndex));
+    }
+    function carGo(dir){
+      gIndex = (gIndex+dir+gallery.length)%gallery.length;
+      updateCar();
+    }
+    renderThumbs();
+    updateCar();
+
+    // ========= ARMA TU RAMO (lógica original) =========
     const flores = [
-      { id: 'rosa',       nombre: 'Rosa',               precio: 50,  colores: ['Roja', 'Rosa', 'Blanca', 'Amarilla', 'Naranja', 'Lila'], imagen: 'images/rosroj.jpg', // imagen base
-    imagenesPorColor: {
-      'Roja':     'images/rosroj.jpg',
-      'Rosa':     'images/rosros.jpg',
-      'Blanca':   'images/rosblan.jpg',
-      'Amarilla': 'images/rosam.jpg',
-'Naranja':   'images/rosnar.gif',
-      'Lila': 'images/roslil.png' }
-},
-      { id: 'rosaPremium', nombre: 'Rosa Premium',         precio: 70,  colores: ['Acapella', ], imagen: 'images/rosac.jpg'  },
-      { id: 'girasol',    nombre: 'Girasol',            precio: 40,  colores: [], imagen: 'images/gir.jpg'  },
-
-      { id: 'lili',       nombre: 'Lili',               precio: 70,  colores: [], imagen: 'images/lil.jpg'  },
-
-      { id: 'gerbera',    nombre: 'Gerbera',            precio: 50,  colores: ['Rosa', 'Roja', 'Naranja', 'Amarilla', 'Blanca'], imagen: 'images/gerros.jpg', // imagen base
-    imagenesPorColor: {
-      'Roja':     'images/gerroj.jpg',
-      'Rosa':     'images/gerros.jpg',
-      'Blanca':   'images/gerblan.jpg',
-      'Amarilla': 'images/gerama.jpg',
-      'Naranja': 'images/gernar.jpg' } 
-},
-      { id: 'dendrobium', nombre: 'Orquídea Dendrobium',precio: 80,  colores: ['Blanco', 'Morado'], imagen: 'images/deblan.jpg', // imagen base
-    imagenesPorColor: {
-      'Blanco':     'images/deblan.jpg',
-      'Morado':     'images/demor.jpg' }
- },
-      { id: 'cymbidium',  nombre: 'Orquídea Cymbidium', precio: 700, colores: ['Amarillo', 'Blanco'],
-imagen: 'images/cymama.jpg', // imagen base
-    imagenesPorColor: {
-      'Blanco':     'images/cymblan.jpg',
-      'Amarillo':     'images/cymama.jpg'   }
- },
-      { id: 'margarita',  nombre: 'Margaritas',         precio: 15,  colores: ['Blanco', 'Amarillo', 'Rojo', 'Lila', 'Naranja', 'Verde'], imagen: 'images/marblan.jpg', // imagen base
-    imagenesPorColor: {
-      'Blanco':     'images/marblan.jpg',
-      'Amarillo':     'images/marama.jpg',
-      'Lila': 'images/marlila.jpg',
-      'Naranja': 'images/marnar.jpg' } 
- },
-      { id: 'astromelia', nombre: 'Astromelia',         precio: 15,  colores: ['Morado', 'Blanco', 'Rosa'], imagen: 'images/asmor.jpg', // imagen base
-    imagenesPorColor: {
-      'Morado':     'images/asmor.jpg',
-      'Blanco':     'images/asblan.jpg',
-      'Rosa': 'images/asros.jpg'
-       } 
-
- },
-      { id: 'clavel',     nombre: 'Clavel',             precio: 20,  colores: ['Rojo', 'Rosa', 'Blanco'],
-imagen: 'images/claroj.jpg', // imagen base
-    imagenesPorColor: {
-      'Rojo':     'images/claroj.jpg',
-      'Rosa':     'images/claros.jpg',
-      'Blanco': 'images/clablan.jpg'
-       }  },
-      { id: 'babyrose',   nombre: 'Baby Rose',          precio: 50,  colores: ['Rosa', 'Blanco', 'Rojo', 'Amarillo', 'Lila'],
-imagen: 'images/babros.jpg', // imagen base
-    imagenesPorColor: {
-      'Rosa':     'images/babros.jpg',
-      'Blanco':     'images/bablan.jpg',
-      'Rojo': 'images/babroj.jpg',
-      'Amarillo': 'images/babama.jpg',
-'Lila': 'images/bablila.jpg'  }  },
-
-      { id: 'craspedias', nombre: 'Craspedia',         precio: 80,   colores: [], imagen: 'images/crasp.jpg' },
-       { id: 'eryngium', nombre: 'Eryngium',         precio: 40,     colores: [], imagen: 'images/eryn.gif' },
-       { id: 'hypericum', nombre: 'Hypericum',         precio: 40,  colores: [], imagen: 'images/hype.gif' },
-       { id: 'ornithogalum', nombre: 'Ornithogalum',         precio: 100,  colores: [], imagen: 'images/orni.png' },
-       { id: 'snapdragon', nombre: 'Snapdragon',         precio: 30,  colores: ['Rosa', 'Blanco', 'Lila'], imagen: 'images/snaros.gif', // imagen base
-    imagenesPorColor: {
-      'Rosa':     'images/snaros.gif',
-      'Blanco':     'images/snablan.gif',
-      'Lila': 'images/snalila.gif' } },
-
-{ id: 'hortensia', nombre: 'Hortensia',         precio: 250,  colores: ['Azul', 'Tinto', 'Morado', 'Lila', 'Rosa'], imagen: 'images/horazul.jpg', // imagen base
-    imagenesPorColor: {
-      'Azul':     'images/horazul.jpg',
-      'Tinto':     'images/hortin.jpg',
-      'Lila': 'images/horlila.jpg',
-'Rosa': 'images/horros.jpg' } },
-
-{ id: 'lisianthus', nombre: 'Lisianthus',         precio: 90,  colores: ['Bicolor', 'Rosa', 'Morado', 'Blanco'], imagen: 'images/libi.png', // imagen base
-    imagenesPorColor: {
-      'Bicolor':     'images/libi.png',
-      'Rosa':     'images/liros.png',
-      'Morado': 'images/limor.png',
-'Blanco': 'images/liblan.png' }  },
-{ id: 'protea', nombre: 'Protea',         precio: 900,  colores: ['Rosa', 'Blanca'], imagen: 'images/proros.gif', // imagen base
-    imagenesPorColor: {
-      'Rosa':     'images/proros.gif',
-      'Blanco':     'images/problan.jpg'  }
- },
+      { id: 'rosa', nombre: 'Rosa', precio: 50,
+        colores: ['Roja', 'Rosa', 'Blanca', 'Amarilla', 'Naranja', 'Lila'],
+        imagen: 'images/rosroj.jpg',
+        imagenesPorColor: {
+          'Roja':     'images/rosroj.jpg',
+          'Rosa':     'images/rosros.jpg',
+          'Blanca':   'images/rosblan.jpg',
+          'Amarilla': 'images/rosam.jpg',
+          'Naranja':  'images/rosnar.gif',
+          'Lila':     'images/roslil.png'
+        }
+      },
+      { id: 'rosaPremium', nombre: 'Rosa Premium', precio: 70,
+        colores: ['Acapella'],
+        imagen: 'images/rosac.jpg'
+      },
+      { id: 'girasol', nombre: 'Girasol', precio: 40,
+        colores: [], imagen: 'images/gir.jpg'
+      },
+      { id: 'lili', nombre: 'Lili', precio: 70,
+        colores: [], imagen: 'images/lil.jpg'
+      },
+      { id: 'gerbera', nombre: 'Gerbera', precio: 50,
+        colores: ['Rosa', 'Roja', 'Naranja', 'Amarilla', 'Blanca'],
+        imagen: 'images/gerros.jpg',
+        imagenesPorColor: {
+          'Roja':     'images/gerroj.jpg',
+          'Rosa':     'images/gerros.jpg',
+          'Blanca':   'images/gerblan.jpg',
+          'Amarilla': 'images/gerama.jpg',
+          'Naranja':  'images/gernar.jpg'
+        }
+      },
+      { id: 'dendrobium', nombre: 'Orquídea Dendrobium', precio: 80,
+        colores: ['Blanco', 'Morado'],
+        imagen: 'images/deblan.jpg',
+        imagenesPorColor: {
+          'Blanco': 'images/deblan.jpg',
+          'Morado': 'images/demor.jpg'
+        }
+      },
+      { id: 'cymbidium', nombre: 'Orquídea Cymbidium', precio: 700,
+        colores: ['Amarillo', 'Blanco'],
+        imagen: 'images/cymama.jpg',
+        imagenesPorColor: {
+          'Blanco':   'images/cymblan.jpg',
+          'Amarillo': 'images/cymama.jpg'
+        }
+      },
+      { id: 'margarita', nombre: 'Margaritas', precio: 15,
+        colores: ['Blanco', 'Amarillo', 'Rojo', 'Lila', 'Naranja', 'Verde'],
+        imagen: 'images/marblan.jpg',
+        imagenesPorColor: {
+          'Blanco':   'images/marblan.jpg',
+          'Amarillo': 'images/marama.jpg',
+          'Lila':     'images/marlila.jpg',
+          'Naranja':  'images/marnar.jpg'
+        }
+      },
+      { id: 'astromelia', nombre: 'Astromelia', precio: 15,
+        colores: ['Morado', 'Blanco', 'Rosa'],
+        imagen: 'images/asmor.jpg',
+        imagenesPorColor: {
+          'Morado': 'images/asmor.jpg',
+          'Blanco': 'images/asblan.jpg',
+          'Rosa':   'images/asros.jpg'
+        }
+      },
+      { id: 'clavel', nombre: 'Clavel', precio: 20,
+        colores: ['Rojo', 'Rosa', 'Blanco'],
+        imagen: 'images/claroj.jpg',
+        imagenesPorColor: {
+          'Rojo':   'images/claroj.jpg',
+          'Rosa':   'images/claros.jpg',
+          'Blanco': 'images/clablan.jpg'
+        }
+      },
+      { id: 'babyrose', nombre: 'Baby Rose', precio: 50,
+        colores: ['Rosa', 'Blanco', 'Rojo', 'Amarillo', 'Lila'],
+        imagen: 'images/babros.jpg',
+        imagenesPorColor: {
+          'Rosa':     'images/babros.jpg',
+          'Blanco':   'images/bablan.jpg',
+          'Rojo':     'images/babroj.jpg',
+          'Amarillo': 'images/babama.jpg',
+          'Lila':     'images/bablila.jpg'
+        }
+      },
+      { id: 'craspedias', nombre: 'Craspedia', precio: 80,
+        colores: [], imagen: 'images/crasp.jpg'
+      },
+      { id: 'eryngium', nombre: 'Eryngium', precio: 40,
+        colores: [], imagen: 'images/eryn.gif'
+      },
+      { id: 'hypericum', nombre: 'Hypericum', precio: 40,
+        colores: [], imagen: 'images/hype.gif'
+      },
+      { id: 'ornithogalum', nombre: 'Ornithogalum', precio: 100,
+        colores: [], imagen: 'images/orni.png'
+      },
+      { id: 'snapdragon', nombre: 'Snapdragon', precio: 30,
+        colores: ['Rosa', 'Blanco', 'Lila'],
+        imagen: 'images/snaros.gif',
+        imagenesPorColor: {
+          'Rosa':   'images/snaros.gif',
+          'Blanco': 'images/snablan.gif',
+          'Lila':   'images/snalila.gif'
+        }
+      },
+      { id: 'hortensia', nombre: 'Hortensia', precio: 250,
+        colores: ['Azul', 'Tinto', 'Morado', 'Lila', 'Rosa'],
+        imagen: 'images/horazul.jpg',
+        imagenesPorColor: {
+          'Azul':  'images/horazul.jpg',
+          'Tinto': 'images/hortin.jpg',
+          'Lila':  'images/horlila.jpg',
+          'Rosa':  'images/horros.jpg'
+        }
+      },
+      { id: 'lisianthus', nombre: 'Lisianthus', precio: 90,
+        colores: ['Bicolor', 'Rosa', 'Morado', 'Blanco'],
+        imagen: 'images/libi.png',
+        imagenesPorColor: {
+          'Bicolor': 'images/libi.png',
+          'Rosa':    'images/liros.png',
+          'Morado':  'images/limor.png',
+          'Blanco':  'images/liblan.png'
+        }
+      },
+      { id: 'protea', nombre: 'Protea', precio: 900,
+        colores: ['Rosa', 'Blanca'],
+        imagen: 'images/proros.gif',
+        imagenesPorColor: {
+          'Rosa':   'images/proros.gif',
+          'Blanca': 'images/problan.jpg'
+        }
+      }
     ];
 
     const builderContainer  = document.getElementById('builder-flowers');
@@ -1794,82 +1636,106 @@ imagen: 'images/babros.jpg', // imagen base
 
     let ramo = []; // { id, nombre, color, qty, precioUnit }
 
+    // helper para animación +1
+    function mostrarAnimacionPlus(boton) {
+      const span = document.createElement('span');
+      span.className = 'plus-one-pop';
+      span.textContent = '+1 🌸';
+
+      const rect = boton.getBoundingClientRect();
+      span.style.left = (rect.left + rect.width / 2) + 'px';
+      span.style.top  = (rect.top + window.scrollY) + 'px';
+
+      document.body.appendChild(span);
+
+      setTimeout(() => {
+        span.remove();
+      }, 650);
+    }
+
+    // helper imagen según flor + color
+    function obtenerImagenFlor(idFlor, color) {
+      const flor = flores.find(f => f.id === idFlor);
+      if (!flor) return '';
+      if (color && flor.imagenesPorColor && flor.imagenesPorColor[color]) {
+        return flor.imagenesPorColor[color];
+      }
+      return flor.imagen || '';
+    }
+
     // Construir tarjetas de flores
     flores.forEach(flor => {
       const card = document.createElement('div');
-card.className = 'flor-card';
-card.dataset.id = flor.id;
+      card.className = 'flor-card';
+      card.dataset.id = flor.id;
 
-// elegimos una imagen inicial: si hay colores y imagenesPorColor, usamos el primero
-let imagenInicial = flor.imagen || 'images/flores/placeholder.jpg';
-if (flor.colores && flor.colores.length && flor.imagenesPorColor) {
-  const colorDefault = flor.colores[0];
-  if (flor.imagenesPorColor[colorDefault]) {
-    imagenInicial = flor.imagenesPorColor[colorDefault];
-  }
-}
+      let imagenInicial = flor.imagen || 'images/placeholder.jpg';
+      if (flor.colores && flor.colores.length && flor.imagenesPorColor) {
+        const colorDefault = flor.colores[0];
+        if (flor.imagenesPorColor[colorDefault]) {
+          imagenInicial = flor.imagenesPorColor[colorDefault];
+        }
+      }
 
-card.innerHTML = `
-  <div class="flor-header">
-    <div class="flor-image-wrap">
-      <img class="flor-image" src="${imagenInicial}" alt="${flor.nombre}">
-    </div>
-    <div>
-      <div class="flor-name">${flor.nombre}</div>
-      <div class="flor-precio">Desde $${flor.precio} MXN por tallo</div>
-    </div>
-  </div>
-  <div class="flor-controls">
-    ${flor.colores.length ? `
-      <div>
-        <label>Color</label><br>
-        <select class="flor-select">
-          ${flor.colores.map(c => `<option value="${c}">${c}</option>`).join('')}
-        </select>
-      </div>
-    ` : ''}
-    <div>
-      <label>Cantidad</label><br>
-      <input class="flor-qty" type="number" min="1" value="1" />
-    </div>
-    <button class="btn-add" type="button">
-      <span>+</span> Agregar
-    </button>
-  </div>
-`;
+      const tieneColores = flor.colores && flor.colores.length;
 
-const imgEl   = card.querySelector('.flor-image');
-const select  = card.querySelector('.flor-select');
-const btnAdd  = card.querySelector('.btn-add');
+      card.innerHTML = `
+        <div class="flor-header">
+          <div class="flor-image-wrap">
+            <img class="flor-image" src="${imagenInicial}" alt="${flor.nombre}">
+          </div>
+          <div>
+            <div class="flor-name">${flor.nombre}</div>
+            <div class="flor-precio">Desde $${flor.precio} MXN por tallo</div>
+          </div>
+        </div>
+        <div class="flor-controls">
+          ${tieneColores ? `
+          <div>
+            <label>Color</label><br>
+            <select class="flor-select">
+              ${flor.colores.map(c => `<option value="${c}">${c}</option>`).join('')}
+            </select>
+          </div>` : ''}
+          <div>
+            <label>Cantidad</label><br>
+            <input class="flor-qty" type="number" min="1" value="1" />
+          </div>
+          <button class="btn-add" type="button">
+            <span>+</span> Agregar
+          </button>
+        </div>
+      `;
 
-// Si la flor tiene colores, cambiamos la imagen cuando elijan otro color
-if (select && flor.imagenesPorColor) {
-  const actualizarImagen = () => {
-    const color = select.value;
-    const srcColor = flor.imagenesPorColor[color];
-    imgEl.src = srcColor || flor.imagen || imagenInicial;
-  };
+      const imgEl   = card.querySelector('.flor-image');
+      const select  = card.querySelector('.flor-select');
+      const btnAdd  = card.querySelector('.btn-add');
 
-  // al cambiar el select
-  select.addEventListener('change', actualizarImagen);
-  // y lo llamamos una vez por si el default tiene imagen específica
-  actualizarImagen();
-}
+      if (select && flor.imagenesPorColor) {
+        const actualizarImagen = () => {
+          const color = select.value;
+          const srcColor = flor.imagenesPorColor[color];
+          imgEl.src = srcColor || imagenInicial;
+        };
+        select.addEventListener('change', actualizarImagen);
+        actualizarImagen();
+      }
 
-btnAdd.addEventListener('click', () => {
-  const qtyInput = card.querySelector('.flor-qty');
-  const qty = parseInt(qtyInput.value, 10) || 0;
-  if (qty <= 0) return;
+      btnAdd.addEventListener('click', () => {
+        const qtyInput = card.querySelector('.flor-qty');
+        const qty = parseInt(qtyInput.value, 10) || 0;
+        if (qty <= 0) return;
 
-  const select = card.querySelector('.flor-select');
-  const color = select ? select.value : '';
+        const selectColor = card.querySelector('.flor-select');
+        const color = selectColor ? selectColor.value : '';
 
-  agregarFlorAlRamo(flor, qty, color);
-  qtyInput.value = 1;
-});
+        agregarFlorAlRamo(flor, qty, color);
+        qtyInput.value = 1;
+        mostrarAnimacionPlus(btnAdd);
+      });
 
-builderContainer.appendChild(card);
-});
+      builderContainer.appendChild(card);
+    });
 
     function agregarFlorAlRamo(flor, qty, color) {
       const keyColor = color || '';
@@ -1902,16 +1768,8 @@ builderContainer.appendChild(card);
         `;
         summaryTotal.textContent = '$0 MXN';
 
-        // Ocultar overlay
-        if (ramoOverlay) {
-          ramoOverlay.classList.remove('show');
-        }
-
-        // Ocultar preview cuando limpian todo
-        if (previewWrapper) {
-          previewWrapper.classList.remove('show');
-        }
-
+        if (ramoOverlay) ramoOverlay.classList.remove('show');
+        if (previewWrapper) previewWrapper.classList.remove('show');
         return;
       }
 
@@ -1923,14 +1781,23 @@ builderContainer.appendChild(card);
         total += subtotal;
         totalTallos += item.qty;
 
+        const imgSrc = obtenerImagenFlor(item.id, item.color);
+
         const row = document.createElement('div');
         row.className = 'summary-item';
         row.innerHTML = `
-          <div>
-            <strong>${item.nombre}</strong>
-            ${item.color ? `<small> · ${item.color}</small>` : ''}
-            <br>
-            <small>${item.qty} tallo(s) x $${item.precioUnit}</small>
+          <div style="display:flex; align-items:flex-start; gap:8px;">
+            ${imgSrc ? `
+              <div class="summary-thumb">
+                <img src="${imgSrc}" alt="${item.nombre}">
+              </div>
+            ` : ''}
+            <div>
+              <strong>${item.nombre}</strong>
+              ${item.color ? `<small> · ${item.color}</small>` : ''}
+              <br>
+              <small>${item.qty} tallo(s) x $${item.precioUnit}</small>
+            </div>
           </div>
           <div>
             <span>$${subtotal}</span><br>
@@ -1942,16 +1809,14 @@ builderContainer.appendChild(card);
         summaryList.appendChild(row);
       });
 
-      summaryTotal.textContent = `$${total} MXN`;
+      summaryTotal.textContent = '$' + total + ' MXN';
 
-      // Overlay: mostrar resumen compacto
       if (ramoOverlay && ramoOverlayDetail) {
         const textoTallos = totalTallos === 1 ? '1 tallo' : `${totalTallos} tallos`;
         ramoOverlayDetail.textContent = `${textoTallos} · Total aprox: $${total} MXN`;
         ramoOverlay.classList.add('show');
       }
 
-      // Botones "Eliminar" individuales
       summaryList.querySelectorAll('.btn-remove').forEach(btn => {
         btn.addEventListener('click', () => {
           const idx = parseInt(btn.dataset.index, 10);
@@ -1967,10 +1832,10 @@ builderContainer.appendChild(card);
       renderRamo();
     });
 
-    // Scroll desde overlay al detalle (ahora cambiamos de sección)
+    // Overlay -> ir a sección de ramo
     if (ramoOverlayBtn) {
       ramoOverlayBtn.addEventListener('click', () => {
-        showSection('arma-tu-ramo');
+        scrollToId('builder');
       });
     }
 
@@ -1985,11 +1850,12 @@ builderContainer.appendChild(card);
 
       ramo.forEach(item => {
         const linea = `• ${item.nombre}${item.color ? ' (' + item.color + ')' : ''}: ${item.qty} tallo(s) x $${item.precioUnit} MXN`;
-        mensaje += linea + '%0A';
+        mensaje += encodeURIComponent(linea) + '%0A';
       });
 
       const totalTexto = summaryTotal.textContent;
-      mensaje += `%0ATotal aproximado: ${totalTexto}%0A%0AMi nombre es: `;
+      mensaje += `%0A${encodeURIComponent('Total aproximado: ' + totalTexto)}%0A%0A`;
+      mensaje += encodeURIComponent('Mi nombre es: ');
 
       const telefono = '523336611674';
       const url = `https://wa.me/${telefono}?text=${mensaje}`;
@@ -1997,7 +1863,7 @@ builderContainer.appendChild(card);
       window.open(url, '_blank');
     });
 
-    // Preview con IA llamando a tu backend en Render
+    // Preview con IA
     if (btnPreview) {
       btnPreview.addEventListener('click', async () => {
         if (ramo.length === 0) {
@@ -2041,6 +1907,34 @@ builderContainer.appendChild(card);
         }
       });
     }
+
+    // EVENTOS · fondo grande
+    const eventsBg = $('#eventsBg');
+    const eventCards = $$('.event');
+
+    function setEventsBg(bg){
+      if(!eventsBg) return;
+      eventsBg.style.backgroundImage = bg;
+      eventsBg.style.opacity = .15;
+      eventsBg.style.transform = 'scale(1.02)';
+      setTimeout(()=>{eventsBg.style.transform = 'scale(1)';},50);
+    }
+
+    if(eventCards.length){
+      const firstBg = eventCards[0].style.getPropertyValue('--bg-img');
+      setEventsBg(firstBg);
+      eventCards[0].classList.add('on');
+    }
+
+    eventCards.forEach(el=>{
+      const bg = el.style.getPropertyValue('--bg-img');
+      el.addEventListener('mouseenter',()=>setEventsBg(bg));
+      el.addEventListener('click',()=>{
+        eventCards.forEach(e=>e.classList.remove('on'));
+        el.classList.add('on');
+        setEventsBg(bg);
+      });
+    });
   </script>
 </body>
 </html>
