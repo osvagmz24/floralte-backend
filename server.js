@@ -1,4 +1,3 @@
-// server.js
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -8,184 +7,103 @@ dotenv.config();
 
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: "2mb" }));
 
-// Asegúrate de tener OPENAI_API_KEY en las variables de entorno de Render
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY
 });
 
-/**
- * Devuelve un texto tipo "ramo pequeño / mediano / grande"
- * según la cantidad de "florecitas visibles" (no solo tallos).
- */
-function describirTamanoRamo(totalFlorecitas) {
-  if (totalFlorecitas <= 12) {
-    return "ramo pequeño pero muy lleno, ideal para regalo de mano";
-  } else if (totalFlorecitas <= 30) {
-    return "ramo mediano, abundante y balanceado";
-  } else if (totalFlorecitas <= 60) {
-    return "ramo grande, muy abundante y espectacular";
-  } else {
-    return "ramo extra grande, súper voluminoso y protagonista";
-  }
+// Helpers para “bonito” y consistente
+function wrapLabelFromObject(envoltura) {
+  if (!envoltura) return "";
+  const paperMap = { coreano: "papel coreano", kraft: "papel kraft", peyon: "papel peyón" };
+  const styleMap = { circular: "circular", "una-vista": "de una vista (frontal/editorial)" };
+
+  const paper = paperMap[envoltura.paperType] || "papel";
+  const style = styleMap[envoltura.wrapStyle] || "circular";
+  const color = envoltura.paperColor || "blanco";
+
+  return `${paper}, estilo ${style}, color del papel ${color}`;
 }
 
-/**
- * Detecta una paleta de color aproximada a partir de los colores elegidos.
- */
-function describirPaletaColores(colores) {
-  if (colores.length === 0) {
-    return "paleta de colores suaves y románticos";
+// Construye texto para describir el ramo + envoltura
+function buildPrompt(ramo, envoltura, envolturaLabel) {
+  // 1) Base estética
+  const base = `
+Fotografía ultra realista de un ramo elegante estilo Floralte Diseño Floral.
+Iluminación suave natural, alta calidad, enfoque profesional, fondo claro limpio.
+Acabado premium, armonía de colores, volumen equilibrado, aspecto fresco.
+`.trim();
+
+  // 2) Composición
+  let comp = "Composición: un ramo elegante con flores premium.";
+  if (ramo && Array.isArray(ramo) && ramo.length > 0) {
+    const partes = ramo.map(item => {
+      const c = item.color ? `color ${item.color}` : "";
+      const qty = Number(item.qty) || 1;
+      const nombre = item.nombre || "flor";
+      return `${qty} tallos de ${nombre} ${c}`.trim();
+    });
+
+    comp = `Composición: ${partes.join(", ")}.`;
   }
 
-  const unicos = [...new Set(colores.map(c => c.toLowerCase()))];
+  // 3) Envoltura
+  const envolturaText =
+    (envolturaLabel && String(envolturaLabel).trim()) ||
+    wrapLabelFromObject(envoltura);
 
-  if (unicos.length === 1) {
-    return `paleta monocromática en tonos ${unicos[0]}`;
-  }
+  const wrapLine = envolturaText
+    ? `Envoltura del ramo: ${envolturaText}.`
+    : `Envoltura del ramo: papel elegante (sin especificar).`;
 
-  if (unicos.length === 2) {
-    return `paleta combinada en tonos ${unicos[0]} y ${unicos[1]}`;
-  }
+  // 4) “Negativos” para evitar cosas raras
+  const negatives = `
+Sin texto, sin marcas, sin logotipos, sin manos, sin personas, sin caras, sin letras, sin watermark.
+No collage, no ilustración, no estilo caricatura.
+`.trim();
 
-  // Más de 2 colores
-  return `paleta de colores variados (${unicos.join(", ")}), armónica y elegante`;
+  return [base, comp, wrapLine, negatives].join("\n");
 }
 
-/**
- * Construye un prompt ultra detallado para el modelo de imagen,
- * en función del ramo seleccionado.
- */
-function buildPromptDesdeRamo(ramo = []) {
-  // Si por alguna razón llega vacío, devolvemos un prompt genérico
-  if (!Array.isArray(ramo) || ramo.length === 0) {
-    return `
-Fotografía hiperrealista de un ramo de flores elegante, estilo Floralte Diseño Floral.
-Ramo tipo bouquet empapelado con papel coreano en tonos neutros (beige, marfil),
-muy lleno y abundante, con mezcla de flores finas y un poco de follaje verde fresco
-(eucalipto y hojas delgadas), fondo neutro desenfocado, iluminación natural suave,
-estilo fotografía de catálogo de florería premium.
-    `.trim();
-  }
-
-  // Flores que tienen varias florecitas por tallo
-  const floresMultiples = new Set(["babyrose", "margarita", "astromelia"]);
-
-  let totalTallos = 0;
-  let totalFlorecitas = 0;
-  const coloresDetectados = [];
-  const descripcionesFlores = ramo.map((item) => {
-    const id = (item.id || "").toLowerCase();
-    const nombre = item.nombre || "flor";
-    const qty = Number(item.qty) || 0;
-    const color = item.color || "";
-    const colorTexto = color ? `de color ${color}` : "";
-
-    totalTallos += qty;
-
-    if (color) coloresDetectados.push(color);
-
-    // Si la flor tiene muchas cabezas por tallo, multiplicamos para la "sensación visual"
-    const multiplicador = floresMultiples.has(id) ? 5 : 1;
-    const florecitasVisibles = qty * multiplicador;
-    totalFlorecitas += florecitasVisibles;
-
-    let notaMultiplicador = "";
-    if (multiplicador > 1) {
-      notaMultiplicador = `, formando pequeños ramitos tupidos (aprox. ${florecitasVisibles} florecitas visibles)`;
-    } else {
-      notaMultiplicador = ` (aprox. ${florecitasVisibles} flores visibles)`;
-    }
-
-    return `- ${qty} tallos de ${nombre} ${colorTexto}${notaMultiplicador}`;
-  });
-
-  const descripcionTamano = describirTamanoRamo(totalFlorecitas);
-  const descripcionPaleta = describirPaletaColores(coloresDetectados);
-
-  return `
-Fotografía hiperrealista y elegante de un ramo de flores estilo Floralte Diseño Floral.
-${descripcionTamano}, con ${descripcionPaleta}.
-Ramo tipo bouquet empapelado, bien "empapelado", muy lleno y sin espacios vacíos,
-envuelto en papel coreano premium en tonos neutros (beige, marfil) con ligeros acentos suaves.
-
-Composición del ramo:
-${descripcionesFlores.join("\n")}
-
-Añade un poco de follaje verde fresco (eucalipto, ruscus, hojas finas) solo como relleno elegante,
-para dar volumen y textura, sin opacar las flores principales.
-
-Estilo de la imagen:
-- Fotografía de catálogo para florería premium
-- Fondo neutro y desenfocado (bokeh suave)
-- Iluminación natural suave, tonos cálidos
-- Ramo centrado en la imagen, ligeramente en ángulo 3/4, enfocando los detalles de las flores y el papel.
-  `.trim();
-}
-
-// Endpoint para probar que el backend está vivo
-app.get("/ping", (req, res) => {
-  res.json({ ok: true, message: "Backend Floralte IA activo 🌸" });
-});
-
-// Endpoint principal para generar el preview con IA
+// Endpoint que llama tu página web
 app.post("/api/generar-preview-ramos", async (req, res) => {
   try {
-    const { ramo } = req.body;
-    console.log("💐 Ramo recibido:", JSON.stringify(ramo, null, 2));
+    const { ramo, envoltura, envolturaLabel } = req.body;
 
-    if (!Array.isArray(ramo) || ramo.length === 0) {
-      return res.status(400).json({
-        ok: false,
-        message: "El ramo está vacío. Agrega flores antes de generar el preview.",
-      });
-    }
-
-    const prompt = buildPromptDesdeRamo(ramo);
-    console.log("📝 Prompt enviado a OpenAI:\n", prompt);
+    const prompt = buildPrompt(ramo, envoltura, envolturaLabel);
 
     const result = await openai.images.generate({
       model: "gpt-image-1",
       prompt,
-      size: "1024x1024",
-      quality: "high",
+      size: "1024x1024"
     });
 
-    const base64 = result.data[0].b64_json;
+    const base64 = result.data?.[0]?.b64_json;
+    if (!base64) {
+      return res.status(500).json({
+        ok: false,
+        message: "La API no devolvió b64_json"
+      });
+    }
+
     const imageUrl = `data:image/png;base64,${base64}`;
 
-    return res.json({
+    res.json({
       ok: true,
       imageUrl,
-      prompt,
+      prompt
     });
   } catch (error) {
-    console.error("🔥 ERROR AL GENERAR IA:", error);
-
-    const status = error.status || 500;
-    const message =
-      error?.error?.message ||
-      error?.response?.data?.error?.message ||
-      error.message ||
-      "Error generando imagen.";
-
-    return res.status(status).json({
+    console.error("Error generando imagen:", error);
+    res.status(500).json({
       ok: false,
-      message,
+      message: "Error generando imagen"
     });
   }
 });
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log("✅ Backend Floralte IA corriendo en puerto", PORT);
+  console.log("Backend Floralte corriendo en puerto", PORT);
 });
-
-
-
-
-
-
-
-
