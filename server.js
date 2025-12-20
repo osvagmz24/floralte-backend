@@ -17,7 +17,11 @@ const openai = new OpenAI({
 function wrapLabelFromObject(envoltura) {
   if (!envoltura) return "";
   const paperMap = { coreano: "papel coreano", kraft: "papel kraft", peyon: "papel peyón" };
-  const styleMap = { circular: "circular", "una-vista": "de una vista (frontal/editorial)" };
+  const styleMap = {
+  circular: "estilo circular con picos irregulares alrededor, bouquet natural, bordes orgánicos, no perfectamente redondo",
+  "una-vista": "estilo de una vista, frontal, bouquet editorial, flores orientadas hacia el frente"
+};
+
 
   const paper = paperMap[envoltura.paperType] || "papel";
   const style = styleMap[envoltura.wrapStyle] || "circular";
@@ -30,7 +34,7 @@ function wrapLabelFromObject(envoltura) {
 function buildPrompt(ramo, envoltura, envolturaLabel) {
   // 1) Base estética
   const base = `
-Fotografía ultra realista de un ramo elegante estilo Floralte Diseño Floral.
+Fotografía ultra realista de un ramo elegante de composicion natural.
 Iluminación suave natural, alta calidad, enfoque profesional, fondo claro limpio.
 Acabado premium, armonía de colores, volumen equilibrado, aspecto fresco.
 `.trim();
