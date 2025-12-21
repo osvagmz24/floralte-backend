@@ -34,7 +34,8 @@ function wrapLabelFromObject(envoltura) {
 function buildPrompt(ramo, envoltura, envolturaLabel) {
   // 1) Base estética
   const base = `
-Fotografía ultra realista de un ramo elegante de composicion natural.
+Fotografía ultra realista de un ramo elegante de composicion natural
+Agrega dolar y gybso o nube como follaje.
 Iluminación suave natural, alta calidad, enfoque profesional, fondo claro limpio.
 Acabado premium, armonía de colores, volumen equilibrado, aspecto fresco.
 `.trim();
